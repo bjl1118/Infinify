@@ -8,8 +8,32 @@
 	<body>
 		<div style="color:green">Sup Stunner</div>
 
-		<form>
-			<input type="file" name="filename" accept="image/gif, image/jpeg, image/png">
-		</form>
+		<canvas id="drawing" width="900" height="600" style="background-color:#ffffff;"></canvas>
+		<input id = "picture" type="file" name="filename" accept="image/gif, image/jpeg, image/png">
+
+		<script>
+			// picture = $("#picture").val();
+			var canvas = $("#drawing")[0]
+			var context = canvas.getContext('2d');
+			function readImage(){
+				if ( this.files && this.files[0] ) {
+ 					var FR= new FileReader();
+ 					FR.onload = function(e) {
+ 						var img = new Image();
+ 						img.onload = function() {
+             context.drawImage(img, 0, 0);
+            };
+            img.src = e.target.result;
+ 					}
+          FR.readAsDataURL( this.files[0] );
+				}
+			}
+
+			$('#picture').on("change", readImage);
+
+
+
+		</script>
+
 	</body>
 </html>
