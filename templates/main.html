@@ -8,13 +8,21 @@
 	<body>
 		<div style="color:green">Sup Stunner</div>
 
-		<canvas id="drawing" width="900" height="600" style="background-color:#ffffff;"></canvas>
+		<canvas id="drawing" width="400" height="300" style="background-color:#ffffff;"></canvas>
+		<canvas id="rectDrawing" width="400" height="300"></canvas>
+<!-- 		<canvas id="drawingLayer" width="900" height="600" style=""
+		<canvas id="layer1" width="100" height="100" 
+   style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
+ <canvas id="layer2" width="100" height="100" 
+   style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas> -->
+
 		<input id = "picture" type="file" name="filename" accept="image/gif, image/jpeg, image/png">
 
 		<script>
-			// picture = $("#picture").val();
 			var canvas = $("#drawing")[0]
 			var context = canvas.getContext('2d');
+			var pos = $(canvas).offset();
+			console.log(pos);
 			function readImage(){
 				if ( this.files && this.files[0] ) {
  					var FR= new FileReader();
@@ -24,15 +32,13 @@
              context.drawImage(img, 0, 0);
             };
             img.src = e.target.result;
+            console.log(img.width);
+            console.log(img.height);
  					}
           FR.readAsDataURL( this.files[0] );
 				}
 			}
-
 			$('#picture').on("change", readImage);
-
-
-
 		</script>
 
 	</body>
