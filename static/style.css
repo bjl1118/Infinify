@@ -38,6 +38,11 @@ input {
 	font-size: 16px;
 }
 
+#heading{
+	background-color: #0099CC;
+	padding: 20px;
+}
+
 #drawing{ 
 	width:0; 
 	height:0; 
