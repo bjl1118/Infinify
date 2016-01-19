@@ -66,7 +66,7 @@ $(document).ready(function(){
 					var canvas = Jcanvas[0];
 					var context = canvas.getContext('2d');
           console.log(drawingWidth, drawingHeight);
-					context.drawImage(img, 0, 0, drawingWidth, drawingHeight);
+					context.drawImage(img, 10, 10, drawingWidth - 20, drawingHeight - 20);
 
         };
         		img.src = e.target.result;
