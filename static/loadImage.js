@@ -30,9 +30,7 @@ $(document).ready(function(){
 
 					var canvas = Jcanvas[0];
 					var context = canvas.getContext('2d');
-					var x = canvas.width / 2 - img.width / 2;
-					var y = canvas.height / 2 - img.height / 2;
-					context.drawImage(img, x, y);
+					context.drawImage(img, 0, 0);
 
         			};
         		img.src = e.target.result;
