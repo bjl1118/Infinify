@@ -26,7 +26,7 @@ $(document).ready(function(){
             // console.log(currentCanvas.draw);
             currentCanvas.draw();
 
-          }, 50);
+          }, 25);
           var editingDiv = $("#editing");
           var editingWidth = editingDiv.width();
           var editingHeight = editingDiv.height();
@@ -66,7 +66,7 @@ $(document).ready(function(){
 					var canvas = Jcanvas[0];
 					var context = canvas.getContext('2d');
           console.log(drawingWidth, drawingHeight);
-					context.drawImage(img, 0, 0, drawingWidth, drawingHeight);
+					context.drawImage(img, 10, 13, drawingWidth-20, drawingHeight-20);
 
         };
         		img.src = e.target.result;
