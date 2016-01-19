@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	console.log("loadImage function loaded!");
 	var Jcanvas = $("#drawing");
 	var drawingCanvas = $("#rectDrawing");
@@ -28,29 +27,52 @@ $(document).ready(function(){
             currentCanvas.draw();
 
           }, 50);
+          var editingDiv = $("#editing");
+          var editingWidth = editingDiv.width();
+          var editingHeight = editingDiv.height();
+          var widthRatio = this.width / editingWidth;
+          var heightRatio = this.height / editingHeight;
+          var drawingWidth, drawingHeight;
+          if (widthRatio > heightRatio) {
+            // var ratio = widthRatio / heightRatio;
+            drawingWidth = editingWidth;
+            drawingHeight = parseInt(this.height * editingWidth / this.width);
+          }
+          else {
+            drawingHeight = editingHeight;
+            drawingWidth = parseInt(this.width * editingHeight / this.height)
+          }
+
+          console.log(editingWidth);
+          console.log(editingHeight);
+          console.log(drawingWidth);
+          console.log(drawingHeight);
 					console.log("even this guy");
-          			console.log(this.width);
-          			console.log(this.height);
-          			Jcanvas.width(this.width);
-          			Jcanvas.height(this.height);
-          			Jcanvas.attr('width', this.width);
-          			Jcanvas.attr('height', this.height);
-          			drawingCanvas.width(this.width);
-					drawingCanvas.height(this.height);
-          			drawingCanvas.attr('width', this.width);
-					drawingCanvas.attr('height', this.height);
+    			Jcanvas.width(drawingWidth);
+    			Jcanvas.height(drawingHeight);
+    			Jcanvas.attr('width', drawingWidth);
+    			Jcanvas.attr('height', drawingHeight);
+    			drawingCanvas.width(drawingWidth);
+					drawingCanvas.height(drawingHeight);
+          drawingCanvas.attr('width', drawingWidth);
+					drawingCanvas.attr('height', drawingHeight);
+          editingDiv.width(drawingWidth);
+          editingDiv.height(drawingHeight);
+          editingDiv.attr('width', drawingWidth);
+          editingDiv.attr('height', drawingHeight);
 					var pos = Jcanvas.offset();
 					drawingCanvas.offset(pos);
 
 					var canvas = Jcanvas[0];
 					var context = canvas.getContext('2d');
-					context.drawImage(img, 0, 0);
+          console.log(drawingWidth, drawingHeight);
+					context.drawImage(img, 0, 0, drawingWidth, drawingHeight);
 
-        			};
+        };
         		img.src = e.target.result;
         // console.log(img);
-				}
-      			FR.readAsDataURL( this.files[0] );
+			}
+      FR.readAsDataURL( this.files[0] );
 		}
 		else{
 			console.log("not so fast");
