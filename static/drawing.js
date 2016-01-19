@@ -7,7 +7,7 @@ function Rect(state, x, y, w, h, fill){
 	this.h = h || 1;
 }
 function CanvasState(canvas){
-	
+
 	//simple constructor
 	console.log('canvasstate constructor called');
 	this.canvas = canvas;
@@ -45,7 +45,11 @@ function CanvasState(canvas){
 		var rely = my - canvasPos.top;
 		that.dragging = true;
 		console.log(relx, rely);
+		that.bottomRight = [relx, rely];
+		console.log(that.bottomRight);
+		console.log(that);
 
+		that.draw();
 	}, false);
 	
 	canvas.addEventListener('mousemove', function(e){
@@ -66,6 +70,10 @@ function CanvasState(canvas){
 CanvasState.prototype.draw = function() {
 	var canvas = this.canvas;
 	canvas.clear();
+	var ctx = this.ctx;
+	var width = this.bottomRight[0] - this.upperLeft[0];
+	var height = this.bottomRight[1] - this.upperLeft[1];
+	ctx.draw(this.upperLeft[0],this.upperLeft[1], width, height);
 };
 
 
