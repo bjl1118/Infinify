@@ -22,6 +22,10 @@ function CanvasState(canvas){
 	this.dragging = false;
 	this.resizing = false;
 	this.expectResize = -1;
+	this.resizeRight = false;
+	this.resizeLeft = false;
+	this.resizeTop = false;
+	this.resizeBottom = false;
 	// this.dragoffx = 0;
 	// this.dragoffy = 0;
 	this.dragClickX = 0;
@@ -29,8 +33,8 @@ function CanvasState(canvas){
 	this.currWidth = 0;
 	this.currHeight = 0;
 
-	this.ctx.fillStyle = "#FFFFFF";
-	this.ctx.strokeStyle = "#FFFFFF";
+	this.ctx.fillStyle = "#FFFF00";
+	this.ctx.strokeStyle = "#000000";
 
 	// this.selectionHandles = [];
 
@@ -118,7 +122,11 @@ CanvasState.prototype.getMouse = function(e) {
 	var relx = mx - canvasPos.left;
 	var rely = my - canvasPos.top;
 	return [relx, rely]
+}
 
+CanvasState.prototype.clickTop = function(e) {
+	var xy = this.getMouse(e);
+	
 }
 
 CanvasState.prototype.rectContains = function(e) {
