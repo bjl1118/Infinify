@@ -23,12 +23,12 @@ $(document).ready(function(){
           			console.log(this.width);
           			console.log(this.height);
           			Jcanvas.width(this.width);
-          Jcanvas.height(this.height);
-          Jcanvas.attr('width', this.width);
-          Jcanvas.attr('height', this.height);
-          drawingCanvas.width(this.width);
+          			Jcanvas.height(this.height);
+          			Jcanvas.attr('width', this.width);
+          			Jcanvas.attr('height', this.height);
+          			drawingCanvas.width(this.width);
 					drawingCanvas.height(this.height);
-          drawingCanvas.attr('width', this.width);
+          			drawingCanvas.attr('width', this.width);
 					drawingCanvas.attr('height', this.height);
 					var pos = Jcanvas.offset();
 					drawingCanvas.offset(pos);
@@ -37,11 +37,11 @@ $(document).ready(function(){
 					var context = canvas.getContext('2d');
 					context.drawImage(img, 0, 0);
 
-        };
-        img.src = e.target.result;
+        			};
+        		img.src = e.target.result;
         // console.log(img);
 				}
-      FR.readAsDataURL( this.files[0] );
+      			FR.readAsDataURL( this.files[0] );
 		}
 		else{
 			console.log("not so fast");
