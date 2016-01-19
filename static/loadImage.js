@@ -3,18 +3,32 @@ $(document).ready(function(){
 	console.log("loadImage function loaded!");
 	var Jcanvas = $("#drawing");
 	var drawingCanvas = $("#rectDrawing");
-	window.CanvasState(drawingCanvas[0]);
+	// CanvasState(drawingCanvas[0]);
+	// window.CanvasState(drawingCanvas[0]);
+  var that = this;
 
 	
 	function readImage(){
+
 		//console.log(window);
 		//console.log(window.CanvasState);
+		console.log('readImage called');
 
 		if ( this.files && this.files[0] ) {
+			console.log("this guy written");
 			var FR= new FileReader();
 			FR.onload = function(e) {
+				console.log("and this guy too");
 				var img = new Image();
 				img.onload = function() {
+          var currentCanvas = new CanvasState(drawingCanvas[0]);
+          setInterval(function(){
+            // console.log(currentCanvas);
+            // console.log(currentCanvas.draw);
+            currentCanvas.draw();
+
+          }, 50);
+					console.log("even this guy");
           			console.log(this.width);
           			console.log(this.height);
           			Jcanvas.width(this.width);
@@ -37,6 +51,9 @@ $(document).ready(function(){
         // console.log(img);
 				}
       			FR.readAsDataURL( this.files[0] );
+		}
+		else{
+			console.log("not so fast");
 		}
 
 	}
