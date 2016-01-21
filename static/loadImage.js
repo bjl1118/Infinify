@@ -2,6 +2,7 @@ $(document).ready(function(){
 	console.log("loadImage function loaded!");
 	var Jcanvas = $("#drawing");
 	var drawingCanvas = $("#rectDrawing");
+	
 	// CanvasState(drawingCanvas[0]);
 	// window.CanvasState(drawingCanvas[0]);
   var that = this;
@@ -25,8 +26,8 @@ $(document).ready(function(){
             // console.log(currentCanvas);
             // console.log(currentCanvas.draw);
             currentCanvas.draw();
-
           }, 25);
+          
           var editingDiv = $("#editing");
           var editingWidth = editingDiv.width();
           var editingHeight = editingDiv.height();
@@ -43,23 +44,21 @@ $(document).ready(function(){
             drawingWidth = parseInt(this.width * editingHeight / this.height)
           }
 
+          var canvaslist = [Jcanvas, drawingCanvas, editingDiv];
+
+          for (var i = 0; i <  canvaslist.length; i++) {
+            canvaslist[i].width(drawingWidth);
+            canvaslist[i].height(drawingHeight);
+            canvaslist[i].attr('width', drawingWidth);
+            canvaslist[i].attr('height', drawingHeight);  
+          }
+
           console.log(editingWidth);
           console.log(editingHeight);
           console.log(drawingWidth);
           console.log(drawingHeight);
 					console.log("even this guy");
-    			Jcanvas.width(drawingWidth);
-    			Jcanvas.height(drawingHeight);
-    			Jcanvas.attr('width', drawingWidth);
-    			Jcanvas.attr('height', drawingHeight);
-    			drawingCanvas.width(drawingWidth);
-					drawingCanvas.height(drawingHeight);
-          drawingCanvas.attr('width', drawingWidth);
-					drawingCanvas.attr('height', drawingHeight);
-          editingDiv.width(drawingWidth);
-          editingDiv.height(drawingHeight);
-          editingDiv.attr('width', drawingWidth);
-          editingDiv.attr('height', drawingHeight);
+
 					var pos = Jcanvas.offset();
 					drawingCanvas.offset(pos);
 
@@ -67,6 +66,7 @@ $(document).ready(function(){
 					var context = canvas.getContext('2d');
           console.log(drawingWidth, drawingHeight);
 					context.drawImage(img, 10, 13, drawingWidth - 20, drawingHeight - 20);
+
         };
         		img.src = e.target.result;
         // console.log(img);

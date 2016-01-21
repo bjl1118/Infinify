@@ -50,8 +50,6 @@ function CanvasState(canvas){
 	// }
 	var that = this;
 
-	$()
-
 	canvas.addEventListener('selectstart', function(e){e.preventDefault(); return false;}, false);
 
 	canvas.addEventListener('mousedown', function(e){
@@ -84,6 +82,8 @@ function CanvasState(canvas){
 		
 	}, false);
 	
+	
+
 	canvas.addEventListener('mousemove', function(e){
 		if (that.dragging){
 			console.log("dragging");
@@ -114,6 +114,8 @@ CanvasState.prototype.clear = function() {
   console.log(this.height);
   console.log('cleared');
 }
+
+
 
 CanvasState.prototype.getMouse = function(e) {
 	var mx = e.pageX;
@@ -160,12 +162,13 @@ CanvasState.prototype.draw = function() {
 								this.upperLeft[1], 
 								this.bottomRight[0] - this.upperLeft[0],
 								this.bottomRight[1] - this.upperLeft[1]);
+		$()
 
 		this.valid = true;
 
+
 	}
 };
-
 
 
 // function CanvasState(canvas){
