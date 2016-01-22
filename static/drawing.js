@@ -56,6 +56,8 @@ function CanvasState(canvas){
 
 	canvas.addEventListener('mousedown', function(e){
 
+		that.clickTop(e);
+
 		if (that.rectContains(e)){
 			var xy = that.getMouse(e);
 			console.log("click in box!");
@@ -67,21 +69,6 @@ function CanvasState(canvas){
 			return;
 		}
 
-		// canvasPos = $(canvas).offset();
-		// // console.log(canvasPos);
-		// console.log("clicked down");
-		// var mx = e.pageX;
-		// var my = e.pageY;
-		// var relx = mx - canvasPos.left;
-		// var rely = my - canvasPos.top;
-		// that.dragging = true;
-		// console.log(relx, rely);
-		// that.bottomRight = [relx, rely];
-		// // console.log(that.bottomRight);
-		// // console.log(that);
-		// that.valid = false;
-		// console.log("that.valid: " + that.valid);
-		
 	}, false);
 	
 	canvas.addEventListener('mousemove', function(e){
@@ -126,7 +113,10 @@ CanvasState.prototype.getMouse = function(e) {
 
 CanvasState.prototype.clickTop = function(e) {
 	var xy = this.getMouse(e);
-	
+	console.log("this diff: " + (Math.abs(this.upperLeft[1]-xy[1])));
+	if (Math.abs(this.upperLeft[1]-xy[1]) < 20){
+		console.log("clicked top");
+	}
 }
 
 CanvasState.prototype.rectContains = function(e) {
