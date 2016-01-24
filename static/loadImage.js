@@ -17,6 +17,34 @@
 
   // }
 
+
+  var resizeFunction = function(e, ui){
+    var dragger = $("#draggable");
+    var editingDiv = $("#editing");
+    var willResize = $("#willResize");
+
+    var dragShape = [dragger.width(), dragger.height()];
+
+
+    var draggerPos = dragger.offset();
+    var dragShape = [dragger.width(), dragger.height()];
+    console.log(dragShape);
+    var widthRatio = dragShape[0]/editingDiv.width();
+    var heightRatio = dragShape[1]/editingDiv.height();
+    console.log(widthRatio,heightRatio);
+    var thisWidth,thisHeight;
+    if (widthRatio <= heightRatio) {
+      thisWidth = editingDiv.width();
+      thisHeight = editingDiv.height()/widthRatio;
+    } else {
+      thisHeight = editingDiv.height();
+      thisWidth = editingDiv.width()/heightRatio;
+    }
+    console.log("heights");
+    console.log(thisWidth,thisHeight);
+    console.log(editingDiv.width());
+  }
+
   var stopFunction = function(e, ui){
     console.log(ui);
     var draggable = $("#draggable");
@@ -48,8 +76,15 @@
   }
   
   // console.log("made resizable");
-  dragger.draggable({containment:'parent'});
-  dragger.resizable({containment : 'parent', minWidth:100, minHeight:100});
+  dragger.draggable({
+    containment:'parent'
+  });
+  dragger.resizable({
+    containment :   'parent',
+    minWidth    :   100,
+    minHeight   :   100,
+    resize      :   resizeFunction
+  });
   console.log("made draggable");
 
 
@@ -159,6 +194,10 @@
     }
     dragger.hide();
     $("#transform").hide();
+    $('#willResize').hide();
+    $('#draggable').hide();
+    console.log('hidden');
+
   }
 
   $("#transform").click(transform);
