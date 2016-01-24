@@ -2,7 +2,6 @@ $(document).ready(function(){
 	console.log("loadImage function loaded!");
 	var Jcanvas = $("#drawing");
 	var drawingCanvas = $("#rectDrawing");
-	
 	// CanvasState(drawingCanvas[0]);
 	// window.CanvasState(drawingCanvas[0]);
   var that = this;
@@ -20,17 +19,21 @@ $(document).ready(function(){
 			FR.onload = function(e) {
 				console.log("and this guy too");
 				var img = new Image();
-				img.onload = function() {
+				/*img.onload = function() {
           var currentCanvas = new CanvasState(drawingCanvas[0]);
           setInterval(function(){
             // console.log(currentCanvas);
             // console.log(currentCanvas.draw);
             currentCanvas.draw();
-          }, 25);
-          
+
+          }, 25);*/
           var editingDiv = $("#editing");
           var editingWidth = editingDiv.width();
           var editingHeight = editingDiv.height();
+          //var drawing_dimn = resize_div(this.width, this.height, editingWidth, editingHeight);
+          //var drawingWidth = drawing_dimn[0];
+          //var drawingHeight = drawing_dimn[1];
+          
           var widthRatio = this.width / editingWidth;
           var heightRatio = this.height / editingHeight;
           var drawingWidth, drawingHeight;
@@ -41,7 +44,7 @@ $(document).ready(function(){
           }
           else {
             drawingHeight = editingHeight;
-            drawingWidth = parseInt(this.width * editingHeight / this.height)
+            drawingWidth = parseInt(this.width * editingHeight / this.height);
           }
 
           var canvaslist = [Jcanvas, drawingCanvas, editingDiv];
@@ -52,7 +55,6 @@ $(document).ready(function(){
             canvaslist[i].attr('width', drawingWidth);
             canvaslist[i].attr('height', drawingHeight);  
           }
-
           console.log(editingWidth);
           console.log(editingHeight);
           console.log(drawingWidth);
@@ -68,7 +70,7 @@ $(document).ready(function(){
 					context.drawImage(img, 10, 13, drawingWidth - 20, drawingHeight - 20);
 
         };
-        img.src = e.target.result;
+        		img.src = e.target.result;
         // console.log(img);
 			}
       FR.readAsDataURL( this.files[0] );
@@ -78,6 +80,25 @@ $(document).ready(function(){
 		}
 
 	}
+
+  /*function resize_div(width, height, editingWidth, editingHeight){
+    console.log("resize function loaded!");
+    var widthRatio = this.width / this.editingWidth;
+    var heightRatio = this.height / this.editingHeight;
+    var drawingWidth, drawingHeight;
+    if (widthRatio > heightRatio) {
+        // var ratio = widthRatio / heightRatio;
+      drawingWidth = editingWidth;
+      drawingHeight = parseInt(this.height * editingWidth / this.width);
+      return [drawingWidth, drawingHeight];
+      }
+    else {
+      drawingHeight = editingHeight;
+      drawingWidth = parseInt(this.width * editingHeight / this.height);
+      return [drawingWidth, drawingHeight];
+    }
+
+  }*/
 	$('#picture').on("change", readImage);
 
 
