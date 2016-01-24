@@ -24,25 +24,29 @@
     var willResize = $("#willResize");
 
     var dragShape = [dragger.width(), dragger.height()];
-
-
-    var draggerPos = dragger.offset();
-    var dragShape = [dragger.width(), dragger.height()];
-    console.log(dragShape);
-    var widthRatio = dragShape[0]/editingDiv.width();
-    var heightRatio = dragShape[1]/editingDiv.height();
-    console.log(widthRatio,heightRatio);
-    var thisWidth,thisHeight;
-    if (widthRatio <= heightRatio) {
-      thisWidth = editingDiv.width();
-      thisHeight = editingDiv.height()/widthRatio;
-    } else {
-      thisHeight = editingDiv.height();
-      thisWidth = editingDiv.width()/heightRatio;
+    var picShape = [editingDiv.width(),editingDiv.height()]
+    var dragRatio = dragShape[1]/dragShape[0];
+    var picRatio = picShape[1]/picShape[0];
+    console.log(dragRatio,picRatio);
+    var thisWidth, thisHeight;
+    if (dragRatio >= picRatio){
+      thisHeight = picShape[1];
+      thisWidth = dragShape[0] * picShape[1] / dragShape[1]
     }
-    console.log("heights");
+    else{
+      thisWidth = picShape[0];
+      thisHeight = dragShape[1] * picShape[0]/dragShape[0];
+    }
     console.log(thisWidth,thisHeight);
-    console.log(editingDiv.width());
+    willResize.offset(editingDiv.offset());
+    
+    willResize.width(thisWidth);
+    willResize.attr('width', thisWidth);
+    willResize.height(thisHeight);
+    willResize.attr('height', thisHeight);
+
+    return;
+
   }
 
   var stopFunction = function(e, ui){
@@ -87,6 +91,8 @@
   });
   console.log("made draggable");
 
+  var willResize = $("#willResize");
+  willResize.draggable({containment : 'parent'});
 
 	
 	function readImage(){
