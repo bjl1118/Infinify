@@ -126,6 +126,7 @@
           console.log(drawingWidth, drawingHeight);
 					context.drawImage(img, 0, 0, drawingWidth, drawingHeight);
           $("#transform").show();
+          $("#download").show();
 
         };
         img.src = e.target.result;
@@ -161,7 +162,22 @@
     $("#transform").hide();
   }
 
+  function save_image(){
+  	console.log("saved");
+  	var can = $(document).find("#drawing");
+  	var dataurl = can.get(0).toDataURL();
+  	var download = $("#download");
+  	download.show();
+  	//window.location.assign(dataurl);
+  	download.attr("href", dataurl);
+
+  }
+
   $("#transform").click(transform);
+  $("#download").click(save_image);
+
+
+
 
 }
 // )
