@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
-		
+				
 		<script src="{{ url_for('static', filename='drawing.js') }}"> </script>
 		<script src="{{ url_for('static', filename='loadImage.js') }}"> </script>
 		
@@ -14,7 +14,7 @@
 </head>
 <body>
 	<div id = "heading">
-		<h1>INFITITE PHOTO</h1>
+		<h1>INFINIFY</h1>
 	</div>
 	<div id = "content">
 		<div id = "editing">
@@ -24,6 +24,7 @@
 			<canvas id="drawing" ></canvas>
 			<canvas id="rectDrawing"></canvas>
 			<div id="draggable" style="position: absolute;border: dashed;z-index: 100; background-color:darkgrey; display: none;opacity: 0.6">Hello darkness my old friend</div>
+			<div id="willResize" style="position: absolute;border: dashed;z-index: 99; background-color:lightgrey; display: none;opacity: 0.6">Who's a dog?</div>
 		</div>
 
 		<div id = "input">

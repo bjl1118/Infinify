@@ -90,7 +90,9 @@
             drawingWidth = parseInt(this.width * editingHeight / this.height)
           }
 
-          var canvaslist = [Jcanvas, drawingCanvas, editingDiv];
+          var willResize = $("#willResize");
+
+          var canvaslist = [Jcanvas, drawingCanvas, editingDiv, willResize];
 
           for (var i = 0; i <  canvaslist.length; i++) {
             canvaslist[i].width(drawingWidth);
@@ -110,7 +112,10 @@
 
           var dragger = $("#draggable");
           dragger.show();
+
           dragger.offset(pos);
+          willResize.offset(pos);
+          willResize.show();
           // dragger.resizable();
           console.log("made resizable");
           // dragger.draggable();
