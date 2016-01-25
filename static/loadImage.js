@@ -85,8 +85,8 @@
   });
   dragger.resizable({
     containment :   'parent',
-    minWidth    :   100,
-    minHeight   :   100,
+    minWidth    :   30,
+    minHeight   :   30,
     resize      :   resizeFunction
   });
   console.log("made draggable");
@@ -133,7 +133,7 @@
 
           var willResize = $("#willResize");
 
-          var canvaslist = [Jcanvas, drawingCanvas, editingDiv, willResize];
+          var canvaslist = [Jcanvas, drawingCanvas, editingDiv];
 
           for (var i = 0; i <  canvaslist.length; i++) {
             canvaslist[i].width(drawingWidth);
@@ -141,6 +141,13 @@
             canvaslist[i].attr('width', drawingWidth);
             canvaslist[i].attr('height', drawingHeight);  
           }
+
+          var squareWidth = Math.min(drawingWidth, drawingHeight);
+          willResize.width(squareWidth);
+          willResize.height(squareWidth);
+          willResize.attr('width', squareWidth);
+          willResize.attr('height', squareWidth);
+          
 
           console.log(editingWidth);
           console.log(editingHeight);
