@@ -1,0 +1,59 @@
+
+
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+
+    <script src="{{ url_for('static', filename='drawing.js') }}"> </script>
+    <script src="{{ url_for('static', filename='loadImage.js') }}"> </script>
+</head>
+<body>
+  <h1>Testing out a canvas</h1>
+  <canvas  id="testingCanvas" width="600" height="600" style="border:solid; margin:20px"></canvas>
+
+  <div width="600" height="600" style="border: solid">
+    this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. this is a great story. 
+
+  </div>
+</body>
+  <script type="text/javascript">
+
+  var testingCanvas = $("#testingCanvas");
+  var ctx = testingCanvas[0].getContext('2d')
+  ctx.strokeStyle='white';
+  var pointArray = [];
+
+  $(testingCanvas).click(function(e){
+    if (pointArray.length == 4) {
+      console.log('already there');
+      return;
+    }
+    console.log("clicked on the canvas");
+    console.log(e.pageX, e.pageY);
+    var offset = testingCanvas.offset();
+    console.log(offset.left,offset.top);
+    console.log(e.pageX - offset.left, e.pageY - offset.top);
+    var coords = [e.pageX - offset.left, e.pageY - offset.top]
+    ctx.fillRect(coords[0],coords[1],4,4);
+    ctx.rect(coords[0]-1,coords[1]-1,6,6);
+    ctx.stroke();
+
+    pointArray.push([coords[0],coords[1]]);
+    if (pointArray.length == 4) {
+      ctx.beginPath();
+      ctx.moveTo(pointArray[0][0],pointArray[0][1]);
+      ctx.lineTo(pointArray[1][0],pointArray[1][1]);
+      ctx.lineTo(pointArray[2][0],pointArray[2][1]);
+      ctx.lineTo(pointArray[3][0],pointArray[3][1]);
+      ctx.closePath();
+      ctx.fill();
+    }
+  });
+
+  </script>
+
+</html>
