@@ -186,6 +186,7 @@
     console.log('transformed');
     var dragger = $("#draggable");
     var editingDiv = $("#editing");
+    var willResize = $("#willResize");
     var canvas = document.getElementById('drawing');
     var ctx = canvas.getContext('2d');
     var editingOff = editingDiv.offset();
@@ -194,10 +195,16 @@
     var relH = draggableOff.top - editingOff.top;
     var drawW = dragger.width();
     var drawH = dragger.height();
-    console.log(relL, relH, drawW, drawH);
+    var sOffX = willResize.offset().left - editingDiv.offset().left;
+    var sOffY = willResize.offset().top - editingDiv.offset().top;
+    var sWidth = willResize.width();
+    var sHeight = willResize.height();
+    // console.log(relL, relH, drawW, drawH);
+    console.log(canvas, sOffX, sOffY, sWidth, sHeight, relL, relH, drawW, drawH);
 
     for (var i =0; i < 10; i++){
-      ctx.drawImage(canvas, relL, relH, drawW, drawH);
+      // ctx.drawImage(canvas, relL, relH, drawW, drawH);
+      ctx.drawImage(canvas, sOffX, sOffY, sWidth, sHeight, relL, relH, drawW, drawH);
     }
     dragger.hide();
     $("#transform").hide();
