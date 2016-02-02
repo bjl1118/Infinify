@@ -2,7 +2,6 @@
 A picture within a picture within picture
 
 
-
 This is the polygon fill branch. It's nice that the other branch works, but we may want to have the ability to draw a quadrilateral instead of have it always be a rectangle. That'd be nice because there's a lot of pictures like Sam's profile picture that have pictures in the background that aren't perfectly square.
 
 Specs: Click on the canvas, and it'll draw a point there. Four points and it'll highlight a polygon.
@@ -87,9 +86,6 @@ So, what do you learn from opposing corners? I really don't know, it's too tough
 
 
 For now, I think that I'll assume vertical alignment.
-
-
-
 
 
 
