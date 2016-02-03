@@ -14,6 +14,11 @@ def main():
 	return render_template('main.html')
 
 
+@app.route("/canvas")
+def canvas():
+  return render_template('testing.html')
+
+
 
 if __name__ == "__main__":
   app.run()

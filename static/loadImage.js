@@ -17,6 +17,28 @@
 
   // }
 
+  function imageToBitArray(canvasWithImage){
+    var ctx = canvasWithImage.getContext('2d');
+    var imageData = ctx.getImageData(0, 0, canvasWithImage.height, canvasWithImage.width);
+    var i=0;
+    var imageArray = new Array();
+    for (i = 0; i < canvasWithImage.height; i++){
+      imageArray[i] = new Array();
+      var j = 0;
+      for (j = 0; j < canvasWithImage.width; j++){
+        for (var n = 0;n < 4;n++){
+          if (n==0){
+            imageArray[i][j] = new Array();
+          }  
+          if (n != 3) {
+            imageArray[i][j][n] = imageData.data[i*canvasWithImage.width+j*4 + n];
+          }
+        }
+      }
+    }
+    return imageArray;
+  }
+
 
   var resizeFunction = function(e, ui){
     var dragger = $("#draggable");
@@ -85,8 +107,8 @@
   });
   dragger.resizable({
     containment :   'parent',
-    minWidth    :   100,
-    minHeight   :   100,
+    minWidth    :   30,
+    minHeight   :   30,
     resize      :   resizeFunction
   });
   console.log("made draggable");
@@ -133,7 +155,7 @@
 
           var willResize = $("#willResize");
 
-          var canvaslist = [Jcanvas, drawingCanvas, editingDiv, willResize];
+          var canvaslist = [Jcanvas, drawingCanvas, editingDiv];
 
           for (var i = 0; i <  canvaslist.length; i++) {
             canvaslist[i].width(drawingWidth);
@@ -141,6 +163,13 @@
             canvaslist[i].attr('width', drawingWidth);
             canvaslist[i].attr('height', drawingHeight);  
           }
+
+          var squareWidth = Math.min(drawingWidth, drawingHeight);
+          willResize.width(squareWidth);
+          willResize.height(squareWidth);
+          willResize.attr('width', squareWidth);
+          willResize.attr('height', squareWidth);
+          
 
           console.log(editingWidth);
           console.log(editingHeight);
@@ -168,6 +197,8 @@
 					context.drawImage(img, 0, 0, drawingWidth, drawingHeight);
           $("#transform").show();
           $("#download").show();
+          setTimeout(function(){console.log(imageToBitArray(Jcanvas[0]))},300);
+          // console.log(imageToBitArray(canvas));
 
         };
         img.src = e.target.result;
