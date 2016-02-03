@@ -43,8 +43,8 @@ function drawVerticalGrid(){
   // First, I'll assume that h2 is greater than h1.
   // also, assume that the first two points are on the left of the second.
   if (h2 == h1) {
-    
     console.log("can't do equal yet");
+    alert("can't do equal yet!");
     return;
   }
   var constant = (totalWidth / (h2 - h1)) * (Math.log(1 + ((h2 - h1)/h1)));
@@ -185,14 +185,69 @@ $(drawing).click(function(e){
     coords[0] = third[0];
     if (third[1] > coords[1]) {
       pointArray = [pointArray[0],pointArray[1],third, coords];
-      drawCurrent(e);
-      return;
     }
-    pointArray = [pointArray[0],pointArray[1],coords, third];
+    else{
+      pointArray = [pointArray[0],pointArray[1],coords, third];
+    }
+    if (pointArray[0][0] > pointarray[3][0]) {
+      pointArray = [pointArray[3],pointArray[2],pointArray[1],pointArray[0]]
+    }
     drawCurrent(e);
     return;
   }
 })
+
+
+function getFracXFromFracX(fracX){
+  var totalWidth = Math.abs(pointArray[0][0] - pointArray[2][0]);
+  var h1 = Math.abs(pointArray[1][1]-pointArray[0][1]);
+  var h2 = Math.abs(pointArray[3][1]-pointArray[2][1]);
+  var w1 = pointArray[0][0];
+
+  if (h2 == h1) {
+    console.log("can't do equal yet");
+    alert("can't do equal yet!");
+    return;
+  }
+
+  var constant = (totalWidth / (h2 - h1)) * (Math.log(1 + ((h2 - h1)/h1)));
+  var x = ((Math.exp(((h2 - h1)/totalWidth) * fracX * constant) - 1) * h1 / (h2 - h1));
+  console.log('constant: ' + constant);
+  return x;
+}
+
+function getTopBottomFromFracX(fracX){
+  var bottom = pointArray[1][1] + (pointArray[2][1] - pointArray[1][1]) * (fracX);
+  var top = pointArray[0][1] + (pointArray[3][1] - pointArray[0][1]) * (fracX);
+  return [top, bottom];
+}
+
+// drawOntoDest(a.offset().left, a.offset().right,a.width(),a.height(), sourceCanvas);
+
+function drawOntoDest(inputRectLeft, inputRectTop, inputRectWidth, inputRectHeight, sourceCanvas){
+  var totalWidth = Math.abs(pointArray[0][0] - pointArray[2][0]);
+  var leftX = pointArray[0][0];
+  for (var i = 0; i < totalWidth; i++) {
+    var fracX = i / totalWidth;
+    var quadFracX = getFracXFromFracX(fracX);
+    var tb = getTopBottomFromFracX(quadFracX);
+    
+    var sx = int(inputRectLeft + (inputRectWidth * fracX));
+    var sy = inputRectTop;
+    var sw = 1;
+    var sh = inputRectHeight;
+    var dx = int(leftX + (totalWidth * quadFracX));
+    var dy = tb[0];
+    var dw = 1;
+    var dh = tb[1]-tb[0]
+    console.log(sx, sy, sw, sh, dx, dy, dw, dh);
+    ctx.drawImage(sourceCanvas, sx, sy, sw, sh, dx, dy, dw, dh);
+    // ctx.drawImage(sourceCanvas,
+    //   int(inputRectLeft + (inputRectWidth * fracX)),
+    //   tb[1], 1, 1,
+    //   int(leftX + (totalWidth * quadFracX)), tb[1]-tb[0] )
+  }
+}
 
 // $("#redraw").click(function(e){
 //   pointArray = [];
