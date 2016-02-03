@@ -87,7 +87,12 @@
   }
 
   function getHeightWidthRatio(){
-
+    var totalWidth = Math.abs(pointArray[0][0] - pointArray[2][0]);
+    var h1 = Math.abs(pointArray[1][1]-pointArray[0][1]);
+    var h2 = Math.abs(pointArray[3][1]-pointArray[2][1]);
+    var maxHeight = Math.max(h1,h2);
+    var minHeight = Math.min(h1,h2);
+    return ((maxHeight / minHeight) / totalWidth);
   }
 
   function drawVerticalGrid(){
@@ -293,9 +298,7 @@
   $("#redraw").click(function(e){
     pointArray = [];
     ctx.clearRect(0,0,testingCanvas.width(), testingCanvas.height());
-  })
-
-  ;
+  });
 
   </script>
 
