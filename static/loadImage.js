@@ -1,8 +1,5 @@
 // $(document).ready(
-
-  window.onload =
-
-  function(){
+ 
 	console.log("loadImage function loaded!");
 	var Jcanvas = $("#drawing");
 	var drawingCanvas = $("#rectDrawing");
@@ -262,7 +259,7 @@
 
 
 
-}
+
 // )
 
 		
