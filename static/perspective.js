@@ -1,26 +1,30 @@
+//function imageToBitArray(canvasWithImage){
+//  var ctx = canvasWithImage.getContext('2d');
+//  var imageData = ctx.getImageData(0, 0, canvas.height, canvas.width);
+//  var i=0;
+//  var imageArray = new Array();
+//  for (i = 0; i < canvas.height; i++){
+//    imageArray[i] = new Array();
+//    var j = 0;
+//    for (j = 0; j < canvas.width; j++){
+//      for (var n = 0;n < 4;n++){
+//        if (n==0){
+//          imageArray[i][j] = new Array();
+//        }  
+//        if (n != 3) {
+//          imageArray[i][j][n] = imageData.data[i*canvas.width+j*4 + n];
+//        }
+//      }
+//    }
+//  }
+//  return imageArray;
+//}
 
+var drawing = $("#drawing");
+var ctx = drawing[0].getContext('2d');
+ctx.strokeStyle='white';
 
-function imageToBitArray(canvasWithImage){
-  var ctx = canvasWithImage.getContext('2d');
-  var imageData = ctx.getImageData(0, 0, canvas.height, canvas.width);
-  var i=0;
-  var imageArray = new Array();
-  for (i = 0; i < canvas.height; i++){
-    imageArray[i] = new Array();
-    var j = 0;
-    for (j = 0; j < canvas.width; j++){
-      for (var n = 0;n < 4;n++){
-        if (n==0){
-          imageArray[i][j] = new Array();
-        }  
-        if (n != 3) {
-          imageArray[i][j][n] = imageData.data[i*canvas.width+j*4 + n];
-        }
-      }
-    }
-  }
-  return imageArray;
-}
+var pointArray=[];
 
 function getHeightWidthRatio(){
   var totalWidth = Math.abs(pointArray[0][0] - pointArray[2][0]);
@@ -79,12 +83,12 @@ function drawGrid(){
 }
 
 function drawCurrent(e){
-  ctx.clearRect(0,0,testingCanvas.width(),testingCanvas.height());
+  ctx.clearRect(0,0,drawing.width(),drawing.height());
   if (pointArray.length == 0) {
     return;
   }
 
-  var offset = testingCanvas.offset();
+  var offset = drawing.offset();
   var currCoords = [e.pageX - offset.left, e.pageY - offset.top]
 
 
@@ -138,19 +142,19 @@ function drawCurrent(e){
   }
 }
 
-$(testingCanvas).mousemove(function(e){
+$(drawing).mousemove(function(e){
   console.log('dragging');
   drawCurrent(e);
 });
 
 
-$(testingCanvas).click(function(e){
+$(drawing).click(function(e){
   if (pointArray.length == 4) {
     console.log('already there');
     return;
   }
 
-  var offset = testingCanvas.offset();
+  var offset = drawing.offset();
   var coords = [e.pageX - offset.left, e.pageY - offset.top]
 
 
@@ -247,5 +251,5 @@ function drawOntoDest(inputRectLeft, inputRectTop, inputRectWidth, inputRectHeig
 
 // $("#redraw").click(function(e){
 //   pointArray = [];
-//   ctx.clearRect(0,0,testingCanvas.width(), testingCanvas.height());
+//   ctx.clearRect(0,0,drawing.width(), drawing.height());
 // })
