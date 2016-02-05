@@ -80,8 +80,7 @@ function drawCropRect(){
   var drawing = $("#drawing");
   //show the div
   draggable_div.show();
-  //get the top left coordinates of the drawing; set the div to appear there
-  
+  //if this is the first time, get the top left coordinates of the drawing; set the div to appear there
   if (!div_positioned) {
     var drawing_top = drawing.offset().top;
     var drawing_left = drawing.offset().left;
@@ -89,11 +88,6 @@ function drawCropRect(){
     draggable_div.offset(drawing_pos);
     div_positioned = true;
   }
-  //var drawing_top = drawing.offset().top;
-  //var drawing_left = drawing.offset().left;
-  //var drawing_pos = {top : drawing_top, left : drawing_left};
-  //draggable_div.offset(drawing_pos);
-  
   //make the div draggable 
   draggable_div.draggable({
     containment : drawing
@@ -146,6 +140,7 @@ function drawCurrent(e){
     ctx.fillRect(coords[0]-1,coords[1]-1,6,6);
     ctx.fillStyle="black";
     ctx.fillRect(coords[0],coords[1],4,4);
+    ctx.strokeStyle="white";
   }
   if (pointArray.length == 1) {
     ctx.beginPath();
@@ -190,10 +185,10 @@ function drawCurrent(e){
   }
 }
 
-$(drawing).mousemove(function(e){
-  console.log('dragging');
-  drawCurrent(e);
-});
+//$(drawing).mousemove(function(e){
+//  console.log('dragging');
+//  drawCurrent(e);
+//});
 
 
 $(drawing).click(function(e){
@@ -280,11 +275,11 @@ function drawOntoDest(inputRectLeft, inputRectTop, inputRectWidth, inputRectHeig
     var quadFracX = getFracXFromFracX(fracX);
     var tb = getTopBottomFromFracX(quadFracX);
     
-    var sx = int(inputRectLeft + (inputRectWidth * fracX));
+    var sx = parseInt(inputRectLeft + (inputRectWidth * fracX));
     var sy = inputRectTop;
     var sw = 1;
     var sh = inputRectHeight;
-    var dx = int(leftX + (totalWidth * quadFracX));
+    var dx = parseInt(leftX + (totalWidth * quadFracX));
     var dy = tb[0];
     var dw = 1;
     var dh = tb[1]-tb[0]
@@ -296,8 +291,25 @@ function drawOntoDest(inputRectLeft, inputRectTop, inputRectWidth, inputRectHeig
     //   int(leftX + (totalWidth * quadFracX)), tb[1]-tb[0] )
   }
 }
+$("#transform").click(function(e){
+  draggable_div = $("#draggable2");
+  drawing = $("#drawing");
+  var left = draggable_div.position().left;
+  var top = draggable_div.position().top;
+  var width = draggable_div.width();
+  var height = draggable_div.height();
+  console.log(" parameters are "+ left + ", " + top + ", " + width + ", " + height);
+  drawOntoDest(left, top, width, height, drawing[0]);
+})
 
 // $("#redraw").click(function(e){
 //   pointArray = [];
 //   ctx.clearRect(0,0,drawing.width(), drawing.height());
 // })
+
+
+
+
+
+
+
