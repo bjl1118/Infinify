@@ -20,11 +20,19 @@
 //  return imageArray;
 //}
 
+
+
 var drawing = $("#drawing");
 var ctx = drawing[0].getContext('2d');
 ctx.strokeStyle='white';
-
+var draggable_div = $("#draggable2");
+var div_positioned = false;
 var pointArray=[];
+
+//var draggable2 = $("draggable2", ctx);
+//draggable2.draggable({
+ // containment: "parent"
+//});
 
 function getHeightWidthRatio(){
   var totalWidth = Math.abs(pointArray[0][0] - pointArray[2][0]);
@@ -61,6 +69,45 @@ function drawVerticalGrid(){
   }
 }
 
+function drawCropRect(){
+  console.log("my name is benjamin");
+  if (pointArray.length != 4) {
+    console.log("drink milk think milk");
+    return;
+  }
+
+  var draggable_div = $("#draggable2");
+  var drawing = $("#drawing");
+  //show the div
+  draggable_div.show();
+  //get the top left coordinates of the drawing; set the div to appear there
+  
+  if (!div_positioned) {
+    var drawing_top = drawing.offset().top;
+    var drawing_left = drawing.offset().left;
+    var drawing_pos = {top : drawing_top, left : drawing_left};
+    draggable_div.offset(drawing_pos);
+    div_positioned = true;
+  }
+  //var drawing_top = drawing.offset().top;
+  //var drawing_left = drawing.offset().left;
+  //var drawing_pos = {top : drawing_top, left : drawing_left};
+  //draggable_div.offset(drawing_pos);
+  
+  //make the div draggable 
+  draggable_div.draggable({
+    containment : drawing
+  });
+  //make the div resizable 
+  draggable_div.resizable({
+    containment : drawing,
+    aspectRatio : true,
+    minHeight   : 30,
+    minWidth    : 30
+  });
+
+}
+
 
 function drawGrid(){
   if (pointArray.length != 4) {
@@ -83,7 +130,7 @@ function drawGrid(){
 }
 
 function drawCurrent(e){
-  ctx.clearRect(0,0,drawing.width(),drawing.height());
+  //ctx.clearRect(0,0,drawing.width(),drawing.height());
   if (pointArray.length == 0) {
     return;
   }
@@ -137,6 +184,7 @@ function drawCurrent(e){
     ctx.fill();
     drawGrid();
     drawVerticalGrid();
+    drawCropRect();
     $("#redraw").show();
     $("#continue").show();
   }
@@ -189,7 +237,7 @@ $(drawing).click(function(e){
     else{
       pointArray = [pointArray[0],pointArray[1],coords, third];
     }
-    if (pointArray[0][0] > pointarray[3][0]) {
+    if (pointArray[0][0] > pointArray[3][0]) {
       pointArray = [pointArray[3],pointArray[2],pointArray[1],pointArray[0]]
     }
     drawCurrent(e);
