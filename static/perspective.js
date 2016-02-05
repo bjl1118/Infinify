@@ -26,7 +26,7 @@ var drawing = $("#drawing");
 var ctx = drawing[0].getContext('2d');
 ctx.strokeStyle='white';
 var draggable_div = $("#draggable2");
-
+var div_positioned = false;
 var pointArray=[];
 
 //var draggable2 = $("draggable2", ctx);
@@ -78,13 +78,34 @@ function drawCropRect(){
 
   var draggable_div = $("#draggable2");
   var drawing = $("#drawing");
-  //var offset = draggable_div.offset();
-
-  //console.log("the coords of draggable_div is" + draggable_div.offset.left);
-
+  //show the div
   draggable_div.show();
-  draggable_div.draggable({containment: 'parent'});
-  draggable_div.resizable({containment: 'parent'});
+  //get the top left coordinates of the drawing; set the div to appear there
+  
+  if (!div_positioned) {
+    var drawing_top = drawing.offset().top;
+    var drawing_left = drawing.offset().left;
+    var drawing_pos = {top : drawing_top, left : drawing_left};
+    draggable_div.offset(drawing_pos);
+    div_positioned = true;
+  }
+  //var drawing_top = drawing.offset().top;
+  //var drawing_left = drawing.offset().left;
+  //var drawing_pos = {top : drawing_top, left : drawing_left};
+  //draggable_div.offset(drawing_pos);
+  
+  //make the div draggable 
+  draggable_div.draggable({
+    containment : drawing
+  });
+  //make the div resizable 
+  draggable_div.resizable({
+    containment : drawing,
+    aspectRatio : true,
+    minHeight   : 30,
+    minWidth    : 30
+  });
+
 }
 
 
