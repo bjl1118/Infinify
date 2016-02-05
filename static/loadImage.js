@@ -93,9 +93,6 @@
     var drawW = draggable.width();
     var drawH = draggable.height();
     ctx.drawImage(canvas, relL, relH, drawW, drawH);
-
-
-
   }
   
   // console.log("made resizable");
@@ -253,7 +250,7 @@
 
   }
 
-  $("#transform").click(transform);
+  //$("#transform").click(transform);
   $("#download").click(save_image);
 
 
