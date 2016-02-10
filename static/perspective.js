@@ -35,12 +35,45 @@ var pointArray=[];
 //});
 
 function getHeightWidthRatio(){
+  /* 
+  Notes from the underground:
+  It's not actually true that twice as far gives you twice the height. There's pythagorean
+  nonsense going on as well I've got to count.
+  If the first one is x away from me, and it's height h:
+  tan(theta)=h_r/x_r (h real over x-away real)
+  tan(theta)
+  The ratio of heights is actually the ratio of angles. It's the same in the small
+  angle approximation. So, we've got the height ratio of 
+
+  How far back is it? If it's twice the height in the front, that means that it's twice
+  as far as the close one.
+
+  It's not actually twice as far away! I think I should go back to that angle thing.
+  
+  Two things that take up the same angle
+
+  first assumption: that the first one is as far away as the height.
+  So, you take the log of the difference. Then we 
+
+  How far back it goes: Let's say it's maxHeight * (maxHeight / minHeight). That's
+  sort of fair. And left right is perceived width 
+
+  */
+
+
+
   var totalWidth = Math.abs(pointArray[0][0] - pointArray[2][0]);
   var h1 = Math.abs(pointArray[1][1]-pointArray[0][1]);
   var h2 = Math.abs(pointArray[3][1]-pointArray[2][1]);
   var maxHeight = Math.max(h1,h2);
   var minHeight = Math.min(h1,h2);
-  return ((maxHeight / minHeight) / totalWidth);
+  var slope = ((maxHeight - minHeight) / totalWidth)
+  var diff = maxHeight - minHeight;
+  var cosine = (totalWidth / Math.sqrt((diff * diff) + (totalWidth * totalWidth)))
+  // return (maxHeight / (cosine * totalWidth))
+  // return (maxHeight / totalWidth)
+  return minHeight / totalWidth
+  // return ((maxHeight / minHeight) / totalWidth);
 }
 
 function drawVerticalGrid(){
@@ -88,6 +121,8 @@ function drawCropRect(){
     draggable_div.offset(drawing_pos);
     div_positioned = true;
   }
+  draggable_div.width(100);
+  draggable_div.height(100 * getHeightWidthRatio())
   //make the div draggable 
   draggable_div.draggable({
     containment : drawing
@@ -299,7 +334,9 @@ $("#transform").click(function(e){
   var width = draggable_div.width();
   var height = draggable_div.height();
   console.log(" parameters are "+ left + ", " + top + ", " + width + ", " + height);
-  drawOntoDest(left, top, width, height, drawing[0]);
+  for (var i = 0; i < 10; i++){
+    drawOntoDest(left, top, width, height, drawing[0]);
+  }
 })
 
 // $("#redraw").click(function(e){
