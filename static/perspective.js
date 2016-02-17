@@ -89,7 +89,7 @@ function drawVerticalGrid(){
     return;
   }
   var constant = (totalWidth / (h2 - h1)) * (Math.log(1 + ((h2 - h1)/h1)));
-  console.log('constant: ' + constant);
+  // console.log('constant: ' + constant);
   for (var i = 0; i <= 10; i++) {
     var x = ((Math.exp(((h2 - h1)/totalWidth) * i * constant / 10) - 1) * h1 * totalWidth / (h2 - h1));
     // When i is 10, we have We have x = totalWidth. When i is 0, x=0. Good.
@@ -103,9 +103,9 @@ function drawVerticalGrid(){
 }
 
 function drawCropRect(){
-  console.log("my name is benjamin");
+  // console.log("my name is benjamin");
   if (pointArray.length != 4) {
-    console.log("drink milk think milk");
+    // console.log("drink milk think milk");
     return;
   }
 
@@ -172,9 +172,9 @@ function drawCurrent(e){
   for (var i = 0; i < pointArray.length; i++){
     var coords = pointArray[i];
     ctx.fillStyle="white";
-    ctx.fillRect(coords[0]-1,coords[1]-1,6,6);
+    ctx.fillRect(coords[0]-3,coords[1]-3,6,6);
     ctx.fillStyle="black";
-    ctx.fillRect(coords[0],coords[1],4,4);
+    ctx.fillRect(coords[0]-2,coords[1]-2,4,4);
     ctx.strokeStyle="white";
   }
   if (pointArray.length == 1) {
@@ -312,11 +312,11 @@ function drawOntoDest(inputRectLeft, inputRectTop, inputRectWidth, inputRectHeig
     
     var sx = parseInt(inputRectLeft + (inputRectWidth * fracX));
     var sy = inputRectTop;
-    var sw = 1;
+    var sw = 2;
     var sh = inputRectHeight;
     var dx = parseInt(leftX + (totalWidth * quadFracX));
     var dy = tb[0];
-    var dw = 1;
+    var dw = 2;
     var dh = tb[1]-tb[0]
     console.log(sx, sy, sw, sh, dx, dy, dw, dh);
     ctx.drawImage(sourceCanvas, sx, sy, sw, sh, dx, dy, dw, dh);
@@ -327,17 +327,31 @@ function drawOntoDest(inputRectLeft, inputRectTop, inputRectWidth, inputRectHeig
   }
 }
 $("#transform").click(function(e){
-  draggable_div = $("#draggable2");
-  drawing = $("#drawing");
+
+  var draggable_div = $("#draggable2");
+  var sourceCanvas = $("#imgContainer");
+  var drawing = $("#drawing");
+  var before = new Date();
+  ctx.clearRect(0,0,drawing.width(), drawing.height());
+  ctx.drawImage(sourceCanvas[0], 0,0);
+  var after = new Date();
+  console.log("time it takes to draw single whole thing is " + (after - before));
+  console.log(drawing.position);
   var left = draggable_div.position().left;
   var top = draggable_div.position().top;
   var width = draggable_div.width();
   var height = draggable_div.height();
   console.log(" parameters are "+ left + ", " + top + ", " + width + ", " + height);
-  for (var i = 0; i < 10; i++){
+  draggable_div.hide();
+  var now = new Date();
+  for (var i = 0; i < 5; i++){
     drawOntoDest(left, top, width, height, drawing[0]);
   }
   draggable_div.hide();
+
+  var later = new Date();
+  console.log("Time it takes to draw five times is: " + (later - now));
+
 })
 
 // $("#redraw").click(function(e){
