@@ -337,6 +337,7 @@ $("#transform").click(function(e){
   for (var i = 0; i < 10; i++){
     drawOntoDest(left, top, width, height, drawing[0]);
   }
+  draggable_div.hide();
 })
 
 // $("#redraw").click(function(e){
