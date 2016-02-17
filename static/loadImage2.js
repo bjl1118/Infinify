@@ -33,13 +33,13 @@ function read_image(){
           drawingWidth = parseInt(this.width * editingHeight / this.height)
         }
 
-        var canvaslist = [js_drawing, js_editing, js_imgContainer];
+        var elementslist = [js_editing, js_imgContainer, js_drawing];
 
-        for (var i = 0; i <  canvaslist.length; i++) {
-          canvaslist[i].width(drawingWidth);
-          canvaslist[i].height(drawingHeight);
-          canvaslist[i].attr('width', drawingWidth);
-          canvaslist[i].attr('height', drawingHeight);  
+        for (var i = 0; i <  elementslist.length; i++) {
+          elementslist[i].width(drawingWidth);
+          elementslist[i].height(drawingHeight);
+          elementslist[i].attr('width', drawingWidth);
+          elementslist[i].attr('height', drawingHeight);  
         }
 
         console.log("editing size is: " + editingWidth + ", " + editingHeight);
