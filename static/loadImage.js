@@ -14,7 +14,7 @@
 
   // }
 
-  function imageToBitArray(canvasWithImage){
+  /*function imageToBitArray(canvasWithImage){
     var ctx = canvasWithImage.getContext('2d');
     var imageData = ctx.getImageData(0, 0, canvasWithImage.height, canvasWithImage.width);
     var i=0;
@@ -34,10 +34,10 @@
       }
     }
     return imageArray;
-  }
+  }*/
 
 
-  var resizeFunction = function(e, ui){
+  /*var resizeFunction = function(e, ui){
     var dragger = $("#draggable");
     var editingDiv = $("#editing");
     var willResize = $("#willResize");
@@ -66,9 +66,9 @@
 
     return;
 
-  }
+  }*/
 
-  var stopFunction = function(e, ui){
+  /*var stopFunction = function(e, ui){
     console.log(ui);
     var draggable = $("#draggable");
     var editingDiv = $('#editing');
@@ -108,7 +108,7 @@
   console.log("made draggable");
 
   var willResize = $("#willResize");
-  willResize.draggable({containment : 'parent'});
+  willResize.draggable({containment : 'parent'});*/
 
 	
 	function readImage(){
@@ -207,7 +207,7 @@
 	}
 	$('#picture').on("change", readImage);
 
-  function transform(){
+  /*function transform(){
     console.log('transformed');
     var dragger = $("#draggable");
     var editingDiv = $("#editing");
@@ -237,7 +237,7 @@
     $('#draggable').hide();
     console.log('hidden');
 
-  }
+  }*/
 
   function save_image(){
   	console.log("saved");

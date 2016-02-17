@@ -30,13 +30,15 @@ body {
 	box-shadow: inset 0 3px 8px #000000;
 }
 
-#input{
-	padding: 10px;
+#picture{
+	margin-bottom: 15px;
+	margin-left: 10px;
 	height: 100%;
 }
 
 input {
 	font-size: 16px;
+	padding:20px;
 }
 
 #imageContainer{
@@ -49,6 +51,25 @@ input {
 	z-index: 1;
 }
 
+.button{
+	padding: 10px 15px;
+	margin: 10px;
+	background: #0099CC;
+	color: #FFF;
+	display: inline-block;
+}
+
+.button:disabled{
+	color: #000;
+	background: #D3D3D3;
+	display: inline-block;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px 15px;
+	height: 50px;
+	width: 75px;
+}
+
 /*#rectDrawing{
 	position: absolute; 
 	width:0; 
@@ -58,13 +79,6 @@ input {
 	z-index:1; 
 	opacity: 0.7; 
 }*/
-
-.button{
-	padding: 10px 15px;
-	background: #0099CC;
-	color: #FFF;
-}
-
 /*#download {
   font: bold 11px Arial;
   text-decoration: none;

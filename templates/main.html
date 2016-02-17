@@ -21,6 +21,9 @@
 
 	<div id = "content" class = "container">
 		<div class = "row">
+			<input id = "picture" type="file" name="filename" accept="image/gif, image/jpeg, image/png">
+		</div>
+		<div class = "row">
 			<div class = "col-md-9">
 				<div id = "editing">
 					<canvas id="imgContainer"></canvas>
@@ -31,9 +34,16 @@
 			</div>
 
 		<div id = "input" class = "col-md-3">
-			<input id = "picture" type="file" name="filename" accept="image/gif, image/jpeg, image/png">
-			<button id="transform" class = "button" style="display:none">Transform!</button>
-			<a id = "download" class = "button" style = "display:none" href = "" download = "image">Download!</a>
+			<div class = "row">
+				<button id="transform" class = "btn btn-default" disable>TRANSFORM</button>
+			</div>
+			<div class = "row">
+				<button id = "reset" class = "btn btn-default" disable>RESET</button>
+			</div>
+			<div class = "row">
+				<a id = "img_link" href = "" style = "display:none" download = "image">DOWNLOAD!</a>
+				<button id= "download" class = "btn btn-default">DOWNLOAD</button>
+			</div>
 		</div>
 	
 		</div>

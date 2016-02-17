@@ -2,6 +2,14 @@
 var js_editing = $("#editing");
 var js_drawing = $("#drawing");
 var js_imgContainer = $("#imgContainer");
+var js_transform = $("#transform");
+var js_reset = $("#reset");
+var js_download = $("#download");
+
+js_transform.prop('disabled', true);
+js_download.prop('disabled', true);
+js_reset.prop('disabled', true);
+
 
 
 //reads the image from the input and displays it as canvas 
@@ -54,8 +62,11 @@ function read_image(){
 				var context = canvas.getContext('2d');
         console.log(drawingWidth, drawingHeight);
 				context.drawImage(img, 0, 0, drawingWidth, drawingHeight);
-        $("#transform").show();
-        $("#download").show();
+        //$("#transform").show();
+        //$("#download").show();
+        js_transform.prop('disabled', false);
+        js_reset.prop('disabled', false);
+        js_download.prop('disabled', false);
           // console.log(imageToBitArray(canvas));
 
       };
@@ -75,9 +86,11 @@ function save_image(){
   var can = $(document).find("#drawing");
   var dataurl = can.get(0).toDataURL();
   var download = $("#download");
-  download.show();
+  var img_link = $("#img_link");
+  //download.show();
   //window.location.assign(dataurl);
-  download.attr("href", dataurl);
+  img_link.attr("href", dataurl);
+  img_link[0].click();
 }
 
 //event handlers go here 
