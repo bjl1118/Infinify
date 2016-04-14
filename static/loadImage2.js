@@ -6,13 +6,20 @@ var js_transform = $("#transform");
 var js_reset = $("#reset");
 var js_download = $("#download");
 
-js_transform.prop('disabled', true);
-js_download.prop('disabled', true);
-js_reset.prop('disabled', true);
-
-
-
 //reads the image from the input and displays it as canvas 
+function disableButtons(){
+  js_transform.prop('disabled', true);
+  js_download.prop('disabled', true);
+  js_reset.prop('disabled', true);
+}
+
+function getCanvasContext(canvas){
+  if (canvas instanceof jQuery && canvas.is("canvas")){
+    return canvas[0].getContext('2d');
+  }
+  console.log("Error, given element is not a canvas");
+}
+
 function read_image(){
 	console.log('readImage called');
 
@@ -58,8 +65,8 @@ function read_image(){
 				var pos = js_imgContainer.offset();
 				js_drawing.offset(pos);
 
-				var canvas = js_imgContainer[0];
-				var context = canvas.getContext('2d');
+				
+				var context = getCanvasContext(js_imgContainer);
         console.log(drawingWidth, drawingHeight);
 				context.drawImage(img, 0, 0, drawingWidth, drawingHeight);
         //$("#transform").show();
@@ -93,9 +100,27 @@ function save_image(){
   img_link[0].click();
 }
 
+function resetImage(){
+  console.log("image reset");
+  imgContext = getCanvasContext(js_imgContainer);
+  drawContext= getCanvasContext(js_drawing);
+  width = js_editing.width();
+  height = js_editing.height();
+  $("#draggable2").css("display", "none");
+  pointArray = [];
+  drawContext.clearRect(0, 0, width,height);
+  imgContext.clearRect(0,0, width, height);
+  $('#picture').val('');
+  disableButtons();
+
+  //console.log(width);
+}
+
 //event handlers go here 
 $("#download").click(save_image);
-$('#picture').on("change", read_image);
+$("#picture").on("change", read_image);
+$("#reset").click(resetImage);
+disableButtons();
 
 
 
