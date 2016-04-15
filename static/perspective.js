@@ -1,4 +1,4 @@
-//function imageToBitArray(canvasWithImage){
+ //function imageToBitArray(canvasWithImage){
 //  var ctx = canvasWithImage.getContext('2d');
 //  var imageData = ctx.getImageData(0, 0, canvas.height, canvas.width);
 //  var i=0;
@@ -23,7 +23,7 @@
 
 
 var drawing = $("#drawing");
-var ctx = drawing[0].getContext('2d');
+var ctx = getCanvasContext(drawing);
 ctx.strokeStyle='white';
 var draggable_div = $("#draggable2");
 var div_positioned = false;
