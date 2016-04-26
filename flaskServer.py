@@ -18,7 +18,12 @@ def main():
 def canvas():
   return render_template('testing.html')
 
+@app.route("/design1")
+def design1():
+	return render_template('main2.html')
+
 
 
 if __name__ == "__main__":
   app.run()
+

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>INFINIFY</title>
+	<meta charset="utf-8">
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='style2.css') }}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>				
+	
+</head>
+<body>
+	<div id = "header" class = "container-fluid">
+		<h1>INFINIFY</h1>
+	</div>
+
+	<div id = "content" class = "container-fluid">
+		<div id = "content-row-main" class = "row">
+			<div id = "buttons-container" class = "col-md-2">
+
+				<div id = "transform-row" class = "row">
+					<div class = "col-md-2">
+						<button id="transform" class = "button">TRANSFORM</button>
+					</div>
+				</div>
+
+				<div id = "Download-row" class = "row">
+					<div class = "col-md-2">
+						<a id = "img_link" href = "" style = "display:none" download = "image">DOWNLOAD!</a>
+						<button id= "download" class = "button">DOWNLOAD</button>
+					</div>
+				</div>
+
+				<div id = "reset-row" class = "row">
+					<div class = "col-md-2">
+						<button id = "reset" class = "button">RESET</button>
+					</div>
+				</div>
+			</div>
+
+			<div id = "edit-container" class = "col-md-6">
+				<div id = "editing">
+					<canvas id="imgContainer"></canvas>
+					<canvas id="drawing" ></canvas>
+					<div id = "draggable2" style = "position: absolute; border: solid black; background-color: white; opacity: 0.4; height: 100px; width: 100px; display:none; z-index: 50;"> DRAG ME AROUND!</div>
+				</div>
+				<div "input-container">
+					<div class = "row">
+				<input id = "picture" type="file" name="filename" accept="image/gif, image/jpeg, image/png">
+			</div>
+				</div>
+			</div>
+
+			<div id = "preview-container" class = "col-md-4">
+				<div id = "before-container-row" class = "row">
+					<div class = "col-md-4">
+						<img class = "preview-img" src="http://animals.sandiegozoo.org/sites/default/files/juicebox_slides/island_indonesia_komodo_03.jpg" >
+					</div>
+				</div>
+
+				<div id = "after-container-row" class = "row">
+					<div class = "col-md-4">
+						<img class = "preview-img" src="http://animals.sandiegozoo.org/sites/default/files/juicebox_slides/island_indonesia_komodo_03.jpg">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id = "footer" class = "container-fluid">
+		<h5 id = "footer-text">This is our footer | This is still our footer | who cares...</h5>
+	</div>
+
+</body>
+<script src="{{ url_for('static', filename='loadImage2.js') }}"> </script>
+<script src="{{ url_for('static', filename = 'perspective.js')}}"> </script>
+</html>
+
+
+
+
+
+
+
+

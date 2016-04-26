@@ -8,9 +8,17 @@ var js_download = $("#download");
 
 //reads the image from the input and displays it as canvas 
 function disableButtons(){
+  $("#picture").prop('disabled', false);
   js_transform.prop('disabled', true);
   js_download.prop('disabled', true);
   js_reset.prop('disabled', true);
+}
+
+function enableButtons(){
+  $("#picture").prop('disabled', true);
+  js_transform.prop('disabled', false);
+  js_reset.prop('disabled', false);
+  js_download.prop('disabled', false);
 }
 
 function getCanvasContext(canvas){
@@ -69,12 +77,8 @@ function read_image(){
 				var context = getCanvasContext(js_imgContainer);
         console.log(drawingWidth, drawingHeight);
 				context.drawImage(img, 0, 0, drawingWidth, drawingHeight);
-        //$("#transform").show();
-        //$("#download").show();
-        js_transform.prop('disabled', false);
-        js_reset.prop('disabled', false);
-        js_download.prop('disabled', false);
-          // console.log(imageToBitArray(canvas));
+
+        enableButtons();
 
       };
       img.src = e.target.result;
@@ -112,6 +116,7 @@ function resetImage(){
   imgContext.clearRect(0,0, width, height);
   $('#picture').val('');
   disableButtons();
+
 
   //console.log(width);
 }
