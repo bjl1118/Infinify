@@ -17,27 +17,25 @@
 	<div id = "header" class = "container-fluid">
 		<h1>INFINIFY</h1>
 	</div>
-
 	<div id = "content" class = "container-fluid">
-
 		<div id = "content-row-main" class = "row row-eq-height">
 			<div id = "buttons-container" class = "col-md-2 content-column">
 
-				<div id = "transform-row" class = "row">
-					<div class = "col-md-2">
+				<div id = "transform-row" class = "row button-row">
+					<div>
 						<button id="transform" class = "button">TRANSFORM</button>
 					</div>
 				</div>
 
-				<div id = "Download-row" class = "row">
-					<div class = "col-md-2">
+				<div id = "Download-row" class = "row button-row">
+					<div>
 						<a id = "img_link" href = "" style = "display:none" download = "image">DOWNLOAD!</a>
 						<button id= "download" class = "button">DOWNLOAD</button>
 					</div>
 				</div>
 
-				<div id = "reset-row" class = "row">
-					<div class = "col-md-2">
+				<div id = "reset-row" class = "row button-row">
+					<div>
 						<button id = "reset" class = "button">RESET</button>
 					</div>
 				</div>
@@ -50,14 +48,15 @@
 					<div id = "draggable2" style = "position: absolute; border: solid black; background-color: white; opacity: 0.4; height: 100px; width: 100px; display:none; z-index: 50;"> DRAG ME AROUND!</div>
 				</div>
 				<div "input-container">
-					<div class = "row">
-				<input id = "picture" type="file" name="filename" accept="image/gif, image/jpeg, image/png">
-			</div>
+					<!--div class = "row"-->
+					<div>
+						<input id = "picture" type="file" name="filename" accept="image/gif, image/jpeg, image/png">
+					</div>
 				</div>
 			</div>
 
 			<div id = "preview-container" class = "col-md-4 content-column">
-			<div id = "before-after-container">
+				<div id = "before-after-container">
 				<div id = "before-container-row" class = "row preview-container-row">
 					{# <div class = "col-md-4"> #}
 					<div>

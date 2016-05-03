@@ -43,15 +43,28 @@ body{
 	height: 100%;
 }
 
-#preview-container{
+.button-row{
 	height: 100%;
+	width: 100%;
+	border: solid green;
+	margin: auto;
+}
+
+.button{
+	height: 50px;
+	width: 100%;
+	border: solid red;
 }
 
 #editing{
-	height: 100%;
+	height: 90%;
 	width: 100%;
 	background-color: #D3D3D3;
 	box-shadow: inset 0 3px 8px #000000;
+}
+
+#preview-container{
+	height: 100%;
 }
 
 .preview-container-row{
@@ -62,15 +75,8 @@ body{
 	height: 100%;
 }
 
-#before-after-container{
-	border: solid red;
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
-}
-
 .preview-img{
-	width:90%;
+	width:100%;
 	height: auto;	
 }
 
