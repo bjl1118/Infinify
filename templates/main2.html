@@ -14,12 +14,35 @@
 	
 </head>
 <body>
-	<div id = "header" class = "container-fluid">
+	<div id = "header" class = "container">
 		<h1>INFINIFY</h1>
+		<p> A Picture Within A Picture...</p>
 	</div>
-	<div id = "content" class = "container-fluid">
-		<div id = "content-row-main" class = "row row-eq-height">
-			<div id = "buttons-container" class = "col-md-2 content-column">
+	<div id = "content" class = "container">
+		<!--div id = "buttons row" class = "row">
+			<!Upload, Reset, Download, or Share
+					Upload prompts a little bubble that says "from file" and "from template" as two tabs
+
+					Download 
+					-->
+
+			<!--div id = "edit-btns-container">
+				<a class = "button" href="#">UPLOAD</a>
+				<a class = "button" href="#">RESET</a>
+			</div>
+			<div id = "preview-btns-container">
+				<a class = "button" href="#">DOWNLOAD</a>
+				<a class = "button" href="#">SHARE</a>
+			</div>
+		</div-->
+
+			<!--button id="transform" class = "button">TRANSFORM</button>
+			<a id = "img_link" href = "" style = "display:none" download = "image">DOWNLOAD!</a>
+			<button id= "download" class = "button">DOWNLOAD</button>
+			<button id = "reset" class = "button">RESET</button-->
+
+
+			<!--div id = "buttons-container" >
 
 				<div id = "transform-row" class = "row button-row">
 					<div>
@@ -41,7 +64,15 @@
 				</div>
 			</div>
 
+		</div-->
+
+		<div id = "content-row-main" class = "row row-eq-height">
+
 			<div id = "edit-container" class = "col-md-6 content-column">
+				<div id = "edit-btns-container" class = "btn-container">
+					<a id = "upload-btn" class = "button" href="#">UPLOAD</a>
+					<a id = "reset-btn" class = "button" href="#">RESET</a>
+				</div>
 				<div id = "editing">
 					<canvas id="imgContainer"></canvas>
 					<canvas id="drawing" ></canvas>
@@ -50,31 +81,34 @@
 				<div "input-container">
 					<!--div class = "row"-->
 					<div>
-						<input id = "picture" type="file" name="filename" accept="image/gif, image/jpeg, image/png">
+						<input id = "picture" style = "display:none" type="file" name="filename" accept="image/gif, image/jpeg, image/png">
 					</div>
 				</div>
 			</div>
 
-			<div id = "preview-container" class = "col-md-4 content-column">
-				<div id = "before-after-container">
+			<div id = "preview-container" class = "col-md-6 content-column">
+				<!--div id = "before-after-container">
 				<div id = "before-container-row" class = "row preview-container-row">
 					{# <div class = "col-md-4"> #}
 					<div>
 						<img class = "preview-img" src="http://animals.sandiegozoo.org/sites/default/files/juicebox_slides/island_indonesia_komodo_03.jpg" >
 					</div>
+				</div-->
+				<div id = "preview-btns-container" class = "btn-container">
+					<a id = "download-btn" class = "button" href="#">DOWNLOAD</a>
+					<a id = "share-btn" class = "button" href="#">SHARE</a>
 				</div>
-
 				<div id = "after-container-row" class = "row preview-container-row">
 					{# <div class = "col-md-4"> #}
 					<div>
 						<img class = "preview-img" src="http://animals.sandiegozoo.org/sites/default/files/juicebox_slides/island_indonesia_komodo_03.jpg">
 					</div>
 				</div>
-				</div>
+			</div>
 			</div>
 		</div>
 	</div>
-	<div id = "footer" class = "container-fluid">
+	<div id = "footer" class = "container">
 		<h5 id = "footer-text">This is our footer | This is still our footer | who cares...</h5>
 	</div>
 

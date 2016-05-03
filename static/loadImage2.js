@@ -122,9 +122,12 @@ function resetImage(){
 }
 
 //event handlers go here 
-$("#download").click(save_image);
+$("#download-btn").click(save_image);
 $("#picture").on("change", read_image);
-$("#reset").click(resetImage);
+$("#reset-btn").click(resetImage);
+$("#upload-btn").click(function(){
+  $("#picture").click();
+});
 disableButtons();
 
 

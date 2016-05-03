@@ -7,20 +7,24 @@
 body{
 	width: 100%;
 	height: 100%;
-	background-color: #0099CC;
+	background-color: #000;
 }
 
 #header{
-	background-color: #0099CC;
+	background-color: #0E1317;
 	padding: 20px;
 	text-align: center;
 }
 
 #header h1{
-	color: #000;
+	color: #B4BABF;
 	letter-spacing: 3px;
 	font-weight: normal;
-	text-shadow: -1px 0 #92CD00, 0 1px #92CD00, 1px 0 #92CD00, 0 -1px #92CD00;
+	/*text-shadow: -1px 0 #92CD00, 0 1px #92CD00, 1px 0 #92CD00, 0 -1px #92CD00;*/
+}
+
+#header p{
+	color: #B4BABF;
 }
 
 #content{
@@ -28,7 +32,17 @@ body{
 	padding-left: 50px;
 	padding-right: 50px;
 	padding-bottom: 80px;
-	background-color: #66CCFF;
+	background-color: #0E1317;
+}
+
+.btn-container{
+	text-align: center;
+	margin : 15px;
+}
+
+.button{
+	letter-spacing: 3px;
+	padding: 10px;
 }
 
 #content-row-main{
@@ -39,7 +53,7 @@ body{
 	display: table-cell;
 	float:none;
 	vertical-align: top;
-	border: 1px solid black;
+	/*border: 1px solid white;*/
 	height: 100%;
 }
 
@@ -50,16 +64,16 @@ body{
 	margin: auto;
 }
 
-.button{
+/*.button{
 	height: 50px;
 	width: 100%;
 	border: solid red;
-}
+}*/
 
 #editing{
 	height: 90%;
 	width: 100%;
-	background-color: #D3D3D3;
+	background-color: #B4BABF;
 	box-shadow: inset 0 3px 8px #000000;
 }
 
@@ -68,10 +82,10 @@ body{
 }
 
 .preview-container-row{
-	background-color: #D3D3D3;
+	background-color: #B4BABF;
 	box-shadow: inset 0 3px 8px #000000;
 	margin-bottom: 15px;
-	border: solid green;
+	/*border: solid green;*/
 	height: 100%;
 }
 
@@ -83,4 +97,9 @@ body{
 #footer{
 	padding: 30px;
 	text-align: center;
+	background-color: #0E1317;
+}
+
+#footer h5{
+	color: #B4BABF;
 }
