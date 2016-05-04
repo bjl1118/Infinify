@@ -98,6 +98,7 @@ body{
 	height: 100%;
 	border: 2px dashed #CE7600;
 	position: relative;
+	padding: 5px;
 	display: inline-block;
 }
 
@@ -118,8 +119,8 @@ body{
 #infinify-edit{
 	/*border: 2px solid yellow;*/
 	position: absolute;
-	top: 0;
-	left: 0;
+	top: 5px;
+	left: 5px;
 	margin: 0 auto;
 }
 
