@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>INFINIFY</title>
+	<title>Infinify</title>
 	<meta charset="utf-8">
  	<meta name="viewport" content="width=device-width, initial-scale=1">
  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
@@ -16,7 +16,7 @@
 <body>
 	<div id = "header" class = "container">
 		<h1>INFINIFY</h1>
-		<p> A Picture Within A Picture...</p>
+		<p> A PICTURE WITHIN A PICTURE...</p>
 	</div>
 	<div id = "content" class = "container">
 		<!--div id = "buttons row" class = "row">
@@ -66,11 +66,14 @@
 
 		</div-->
 
-		<div id = "content-row-main" class = "row row-eq-height">
+		<div id = "content-row-main" class = "row-fluid row-eq-height">
 
-			<div id = "edit-container" class = "col-md-6 content-column">
+			<div class = "col-md-6 content-column">
+			<!--div class = "col-md-12"-->
+			<div id = "edit-container">
 				<div id = "edit-btns-container" class = "btn-container">
 					<a id = "upload-btn" class = "button" href="#">UPLOAD</a>
+					<a id = "transform-btn" class = "button" href="#">TRANSFORM</a>
 					<a id = "reset-btn" class = "button" href="#">RESET</a>
 				</div>
 				<div id = "editing">
@@ -84,6 +87,7 @@
 						<input id = "picture" style = "display:none" type="file" name="filename" accept="image/gif, image/jpeg, image/png">
 					</div>
 				</div>
+				</div>
 			</div>
 
 			<div id = "preview-container" class = "col-md-6 content-column">
@@ -94,16 +98,22 @@
 						<img class = "preview-img" src="http://animals.sandiegozoo.org/sites/default/files/juicebox_slides/island_indonesia_komodo_03.jpg" >
 					</div>
 				</div-->
+				<!--div class = "col-md-12"-->
+				<div id = "preview-container">
 				<div id = "preview-btns-container" class = "btn-container">
 					<a id = "download-btn" class = "button" href="#">DOWNLOAD</a>
 					<a id = "share-btn" class = "button" href="#">SHARE</a>
+					<a id = "img_link" href = "" style = "display:none" download = "image">DOWNLOAD!</a>
+
 				</div>
-				<div id = "after-container-row" class = "row preview-container-row">
+				<div id = "after-container" class = "preview-container-row">
 					{# <div class = "col-md-4"> #}
 					<div>
 						<img class = "preview-img" src="http://animals.sandiegozoo.org/sites/default/files/juicebox_slides/island_indonesia_komodo_03.jpg">
 					</div>
 				</div>
+				</div>
+				
 			</div>
 			</div>
 		</div>

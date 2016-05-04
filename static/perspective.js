@@ -326,7 +326,7 @@ function drawOntoDest(inputRectLeft, inputRectTop, inputRectWidth, inputRectHeig
     //   int(leftX + (totalWidth * quadFracX)), tb[1]-tb[0] )
   }
 }
-$("#transform").click(function(e){
+$("#transform-btn").click(function(e){
 
   var draggable_div = $("#draggable2");
   var sourceCanvas = $("#imgContainer");

@@ -36,11 +36,7 @@ body{
 	padding-left: 50px;
 	padding-right: 50px;
 	padding-bottom: 80px;
-	background: #0E1317;
-	background: -o-radial-gradient(#162837, #0E1317);
-	background: -webkit-radial-gradient(#162837, #0E1317);
-	background: -moz-radial-gradient(#162837, #0E1317);
-	background: radial-gradient(#162837, #0E1317);
+	background: #162837;
 }
 
 .btn-container{
@@ -52,14 +48,29 @@ body{
 	letter-spacing: 3px;
 	padding: 10px;
 	color: #B4BABF;
+	text-decoration: none;
+}
+
+.button:visited{
+	color: #B4BABF;
+	text-decoration: none;
 }
 
 .button:hover{
 	color: #CE7600;
+	text-decoration: none;
+}
+
+.button:active{
+	color: #CE7600;
+	text-decoration: none;
 }
 
 #content-row-main{
 	display: table;
+	border-collapse: separate;
+	border-spacing: 15px;
+
 }
 
 .content-column{
@@ -68,6 +79,9 @@ body{
 	vertical-align: top;
 	/*border: 1px solid white;*/
 	height: 100%;
+	background: #0E1317;
+	padding: 10px;
+	overflow: hidden;
 }
 
 .button-row{
