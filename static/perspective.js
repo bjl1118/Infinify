@@ -28,6 +28,7 @@ ctx.strokeStyle='white';
 var draggable_div = $("#draggable2");
 var div_positioned = false;
 var pointArray=[];
+var hasImage = false;
 
 //var draggable2 = $("draggable2", ctx);
 //draggable2.draggable({
@@ -103,8 +104,12 @@ function drawVerticalGrid(){
 }
 
 function drawCropRect(){
+
+  if (!hasImage){
+    return;
+  }
   // console.log("my name is benjamin");
-  if (pointArray.length != 4) {
+  if (pointArray.length != 4 ) {
     // console.log("drink milk think milk");
     return;
   }
@@ -139,7 +144,11 @@ function drawCropRect(){
 
 
 function drawGrid(){
-  if (pointArray.length != 4) {
+  if (!hasImage){
+    return;
+  }
+
+  if (pointArray.length != 4 ) {
     console.log("why are you calling this now?!?!");
     return;
   }
@@ -160,6 +169,10 @@ function drawGrid(){
 
 function drawCurrent(e){
   //ctx.clearRect(0,0,drawing.width(),drawing.height());
+  if(!hasImage){
+    return;
+  }
+
   if (pointArray.length == 0) {
     return;
   }

@@ -7,7 +7,7 @@ var js_reset = $("#reset");
 var js_download = $("#download");
 
 //reads the image from the input and displays it as canvas 
-function disableButtons(){
+/*function disableButtons(){
   $("#picture").prop('disabled', false);
   js_transform.prop('disabled', true);
   js_download.prop('disabled', true);
@@ -19,7 +19,7 @@ function enableButtons(){
   js_transform.prop('disabled', false);
   js_reset.prop('disabled', false);
   js_download.prop('disabled', false);
-}
+}*/
 
 function getCanvasContext(canvas){
   if (canvas instanceof jQuery && canvas.is("canvas")){
@@ -64,6 +64,7 @@ function read_image(){
           elementslist[i].attr('width', drawingWidth);
           elementslist[i].attr('height', drawingHeight);  
         }
+
         console.log("editing size is: " + editingWidth + ", " + editingHeight);
         console.log(drawingWidth);
         console.log(drawingHeight);
@@ -81,6 +82,7 @@ function read_image(){
 
       };
       img.src = e.target.result;
+      hasImage = true;
         // console.log(img);
  		}
       FR.readAsDataURL( this.files[0] );
@@ -114,6 +116,7 @@ function resetImage(){
   drawContext.clearRect(0, 0, width,height);
   imgContext.clearRect(0,0, width, height);
   $('#picture').val('');
+  hasImage = false;
   disableButtons();
 
 
