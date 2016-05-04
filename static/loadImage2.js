@@ -56,7 +56,7 @@ function read_image(){
           drawingWidth = parseInt(this.width * editingHeight / this.height)
         }
 
-        var elementslist = [js_editing, js_imgContainer, js_drawing];
+        var elementslist = [js_imgContainer, js_drawing];
 
         for (var i = 0; i <  elementslist.length; i++) {
           elementslist[i].width(drawingWidth);
@@ -64,7 +64,6 @@ function read_image(){
           elementslist[i].attr('width', drawingWidth);
           elementslist[i].attr('height', drawingHeight);  
         }
-
         console.log("editing size is: " + editingWidth + ", " + editingHeight);
         console.log(drawingWidth);
         console.log(drawingHeight);
