@@ -76,10 +76,13 @@
 					<a id = "transform-btn" class = "button" href="#">TRANSFORM</a>
 					<a id = "reset-btn" class = "button" href="#">RESET</a>
 				</div>
-				<div id = "editing">
-					<canvas id="imgContainer"></canvas>
-					<canvas id="drawing" ></canvas>
-					<div id = "draggable2" style = "position: absolute; border: solid black; background-color: white; opacity: 0.4; height: 100px; width: 100px; display:none; z-index: 50;"> DRAG ME AROUND!</div>
+				<div id = "editing" class = "column-main">
+					<img class = "sizerImg" src="https://www.colourbox.com/preview/2778860-metal-pipe-girders-angles-channels-and-square-tube-on-a-white-background.jpg" alt="">
+					<div id = "infinify-edit">
+						<canvas id="imgContainer"></canvas>
+						<canvas id="drawing" ></canvas>
+						<div id = "draggable2" style = "position: absolute; border: solid black; background-color: white; opacity: 0.4; height: 100px; width: 100px; display:none; z-index: 50;"> DRAG ME AROUND!</div>
+					</div>
 				</div>
 				<div "input-container">
 					<!--div class = "row"-->
@@ -106,10 +109,11 @@
 					<a id = "img_link" href = "" style = "display:none" download = "image">DOWNLOAD!</a>
 
 				</div>
-				<div id = "after-container" class = "preview-container-row">
+				<div id = "after-container" class = "column-main">
+					<img class = "sizerImg" src="https://www.colourbox.com/preview/2778860-metal-pipe-girders-angles-channels-and-square-tube-on-a-white-background.jpg" alt="">
 					{# <div class = "col-md-4"> #}
 					<div>
-						<img class = "preview-img" src="http://animals.sandiegozoo.org/sites/default/files/juicebox_slides/island_indonesia_komodo_03.jpg">
+						<img id = "preview-img" src="https://www.colourbox.com/preview/2778860-metal-pipe-girders-angles-channels-and-square-tube-on-a-white-background.jpg">
 					</div>
 				</div>
 				</div>
