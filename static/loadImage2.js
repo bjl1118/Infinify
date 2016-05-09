@@ -97,9 +97,9 @@ function read_image(){
 //downloads the image after it has been transformed 
 function save_image(){
 	console.log("saved");
-  var can = $(document).find("#drawing");
+  var can = $(document).find("#previewCanvas");
   var dataurl = can.get(0).toDataURL();
-  var download = $("#download");
+  //var download = $("#download");
   var img_link = $("#img_link");
   //download.show();
   //window.location.assign(dataurl);
@@ -109,6 +109,7 @@ function save_image(){
 
 function resetImage(){
   console.log("image reset");
+  pointArray = [];
   imgContext = getCanvasContext(js_imgContainer);
   drawContext= getCanvasContext(js_drawing);
   prevCanCtx = getCanvasContext(previewCanvas);
@@ -118,7 +119,7 @@ function resetImage(){
   pointArray = [];
   drawContext.clearRect(0, 0, width,height);
   imgContext.clearRect(0,0, width, height);
-  prevCanCtx.clearRect(0, 0, width, height)
+  prevCanCtx.clearRect(0, 0, width, height);
   $('#picture').val('');
   hasImage = false;
   //disableButtons();
@@ -132,6 +133,7 @@ $("#download-btn").click(save_image);
 $("#picture").on("change", read_image);
 $("#reset-btn").click(resetImage);
 $("#upload-btn").click(function(){
+  resetImage();
   $("#picture").click();
 });
 
