@@ -103,13 +103,9 @@ body{
 	display: inline-block;
 }
 
-/*#editing{
-	/*height: 90%;
-	width: 100%;
-	background-color: #B4BABF;
-	box-shadow: inset 0 3px 8px #000000;
-	display: none;
-}*/
+#editing{
+	overflow: hidden;
+}
 
 .sizerImg{
 	width: 100%;
@@ -123,11 +119,13 @@ body{
 	top: 5px;
 	left: 5px;
 	margin: 0 auto;
+	overflow: hidden;
 }
 
 #preview-container{
 	height: 100%;
 	position: relative;
+	overflow: hidden;
 }
 
 /*#after-container{
@@ -142,11 +140,16 @@ body{
 	position: absolute;
 	top: 5px;
 	left: 5px;
+	overflow: hidden;
 }
 
 #preview-img{
 	width: 90%;
 	height: auto;
+}
+
+#previewCanvas{
+	z-index: 0;
 }
 
 #footer{

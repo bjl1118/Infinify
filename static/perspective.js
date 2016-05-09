@@ -25,7 +25,8 @@
 var drawing = $("#drawing");
 var previewDrawing = $("#previewDrawing");
 var ctx = getCanvasContext(drawing);
-var ctx2 = getCanvasContext(previewDrawing);
+var drawCtx = getCanvasContext(previewDrawing);
+var canCtx = getCanvasContext(previewCanvas)
 ctx.strokeStyle='white';
 var draggable_div = $("#draggable2");
 var div_positioned = false;
@@ -334,7 +335,7 @@ function drawOntoDest(inputRectLeft, inputRectTop, inputRectWidth, inputRectHeig
     var dw = 2;
     var dh = tb[1]-tb[0]
     console.log(sx, sy, sw, sh, dx, dy, dw, dh);
-    ctx2.drawImage(sourceCanvas, sx, sy, sw, sh, dx, dy, dw, dh);
+    canCtx.drawImage(sourceCanvas, sx, sy, sw, sh, dx, dy, dw, dh);
     // ctx.drawImage(sourceCanvas,
     //   int(inputRectLeft + (inputRectWidth * fracX)),
     //   tb[1], 1, 1,
@@ -350,10 +351,10 @@ $("#transform-btn").click(function(e){
   var previewDrawing = $("#previewDrawing");
   var previewCanvas = $("#previewCanvas");
   var before = new Date();
-  var ctx2 = getCanvasContext(previewCanvas);
+  //var ctx3 = getCanvasContext(previewCanvas);
   //make new img and set src to the src image in the editing canvas
   var previewImg = new Image();
-  ctx2.drawImage(sourceCanvas[0], 0 ,0);
+  canCtx.drawImage(sourceCanvas[0], 0 ,0);
 
   //ctx.clearRect(0,0,drawing.width(), drawing.height());
   ctx.drawImage(sourceCanvas[0], 0,0);
@@ -368,7 +369,7 @@ $("#transform-btn").click(function(e){
   draggable_div.hide();
   var now = new Date();
   for (var i = 0; i < 5; i++){
-    drawOntoDest(left, top, width, height, previewDrawing[0]);
+    drawOntoDest(left, top, width, height, previewCanvas[0]);
   }
 
   draggable_div.hide();

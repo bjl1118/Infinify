@@ -6,6 +6,7 @@ var js_transform = $("#transform");
 var js_reset = $("#reset");
 var js_download = $("#download");
 var previewCanvas = $("#previewCanvas");
+var previewDrawing = $("#previewDrawing");
 
 //reads the image from the input and displays it as canvas 
 /*function disableButtons(){
@@ -57,7 +58,7 @@ function read_image(){
           drawingWidth = parseInt(this.width * editingHeight / this.height)
         }
 
-        var elementslist = [previewCanvas, js_imgContainer, js_drawing];
+        var elementslist = [js_imgContainer, js_drawing, previewCanvas, previewDrawing];
 
         for (var i = 0; i <  elementslist.length; i++) {
           elementslist[i].width(drawingWidth);
@@ -110,12 +111,14 @@ function resetImage(){
   console.log("image reset");
   imgContext = getCanvasContext(js_imgContainer);
   drawContext= getCanvasContext(js_drawing);
+  prevCanCtx = getCanvasContext(previewCanvas);
   width = js_editing.width();
   height = js_editing.height();
   $("#draggable2").css("display", "none");
   pointArray = [];
   drawContext.clearRect(0, 0, width,height);
   imgContext.clearRect(0,0, width, height);
+  prevCanCtx.clearRect(0, 0, width, height)
   $('#picture').val('');
   hasImage = false;
   //disableButtons();
