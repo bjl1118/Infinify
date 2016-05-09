@@ -23,7 +23,9 @@
 
 
 var drawing = $("#drawing");
+var previewDrawing = $("#previewDrawing");
 var ctx = getCanvasContext(drawing);
+var ctx2 = getCanvasContext(previewDrawing);
 ctx.strokeStyle='white';
 var draggable_div = $("#draggable2");
 var div_positioned = false;
@@ -332,20 +334,28 @@ function drawOntoDest(inputRectLeft, inputRectTop, inputRectWidth, inputRectHeig
     var dw = 2;
     var dh = tb[1]-tb[0]
     console.log(sx, sy, sw, sh, dx, dy, dw, dh);
-    ctx.drawImage(sourceCanvas, sx, sy, sw, sh, dx, dy, dw, dh);
+    ctx2.drawImage(sourceCanvas, sx, sy, sw, sh, dx, dy, dw, dh);
     // ctx.drawImage(sourceCanvas,
     //   int(inputRectLeft + (inputRectWidth * fracX)),
     //   tb[1], 1, 1,
     //   int(leftX + (totalWidth * quadFracX)), tb[1]-tb[0] )
   }
 }
+
 $("#transform-btn").click(function(e){
 
   var draggable_div = $("#draggable2");
   var sourceCanvas = $("#imgContainer");
   var drawing = $("#drawing");
+  var previewDrawing = $("#previewDrawing");
+  var previewCanvas = $("#previewCanvas");
   var before = new Date();
-  ctx.clearRect(0,0,drawing.width(), drawing.height());
+  var ctx2 = getCanvasContext(previewCanvas);
+  //make new img and set src to the src image in the editing canvas
+  var previewImg = new Image();
+  ctx2.drawImage(sourceCanvas[0], 0 ,0);
+
+  //ctx.clearRect(0,0,drawing.width(), drawing.height());
   ctx.drawImage(sourceCanvas[0], 0,0);
   var after = new Date();
   console.log("time it takes to draw single whole thing is " + (after - before));
@@ -358,14 +368,26 @@ $("#transform-btn").click(function(e){
   draggable_div.hide();
   var now = new Date();
   for (var i = 0; i < 5; i++){
-    drawOntoDest(left, top, width, height, drawing[0]);
+    drawOntoDest(left, top, width, height, previewDrawing[0]);
   }
+
   draggable_div.hide();
+
+  //Ok, heres how im going to do this
+ // --were going to create a canvas with height and width equal to the resize img
+  //--this canvas has visibility:0, not sure yet 
+//  --when we click the transform button, we create a new image object
+//  --the new image object is the img on the editing canvas 
+//  --we draw that img on the canvas, with all the other subsections inside
+//  --when the function is finished, we display the img 
 
   var later = new Date();
   console.log("Time it takes to draw five times is: " + (later - now));
 
+  
+
 })
+
 
 // $("#redraw").click(function(e){
 //   pointArray = [];

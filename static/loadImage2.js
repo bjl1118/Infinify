@@ -5,6 +5,7 @@ var js_imgContainer = $("#imgContainer");
 var js_transform = $("#transform");
 var js_reset = $("#reset");
 var js_download = $("#download");
+var previewCanvas = $("#previewCanvas");
 
 //reads the image from the input and displays it as canvas 
 /*function disableButtons(){
@@ -56,7 +57,7 @@ function read_image(){
           drawingWidth = parseInt(this.width * editingHeight / this.height)
         }
 
-        var elementslist = [js_imgContainer, js_drawing];
+        var elementslist = [previewCanvas, js_imgContainer, js_drawing];
 
         for (var i = 0; i <  elementslist.length; i++) {
           elementslist[i].width(drawingWidth);
@@ -78,7 +79,7 @@ function read_image(){
         console.log(drawingWidth, drawingHeight);
 				context.drawImage(img, 0, 0, drawingWidth, drawingHeight);
 
-        enableButtons();
+        //enableButtons();
 
       };
       img.src = e.target.result;
@@ -117,7 +118,7 @@ function resetImage(){
   imgContext.clearRect(0,0, width, height);
   $('#picture').val('');
   hasImage = false;
-  disableButtons();
+  //disableButtons();
 
 
   //console.log(width);
@@ -130,7 +131,6 @@ $("#reset-btn").click(resetImage);
 $("#upload-btn").click(function(){
   $("#picture").click();
 });
-disableButtons();
 
 
 

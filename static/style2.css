@@ -127,6 +127,7 @@ body{
 
 #preview-container{
 	height: 100%;
+	position: relative;
 }
 
 /*#after-container{
@@ -137,10 +138,15 @@ body{
 	height: 100%;
 }*/
 
+#preview-img-container{
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+
 #preview-img{
-	width:100%;
-	height: auto;	
-	display: none;
+	width: 90%;
+	height: auto;
 }
 
 #footer{
