@@ -1,6 +1,7 @@
 //declare global jquery objects here
 var js_editing = $("#editing");
 var js_drawing = $("#drawing");
+var infinifyEdit = $("#infinify-edit");
 var js_imgContainer = $("#imgContainer");
 var js_transform = $("#transform");
 var js_reset = $("#reset");
@@ -58,7 +59,7 @@ function read_image(){
           drawingWidth = parseInt(this.width * editingHeight / this.height)
         }
 
-        var elementslist = [js_imgContainer, js_drawing, previewCanvas, previewDrawing];
+        var elementslist = [js_imgContainer, js_drawing, infinifyEdit, previewCanvas];
 
         for (var i = 0; i <  elementslist.length; i++) {
           elementslist[i].width(drawingWidth);
