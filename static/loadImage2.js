@@ -1,6 +1,7 @@
 //declare global jquery objects here
 var js_editing = $("#editing");
 var js_drawing = $("#drawing");
+var infinifyEdit = $("#infinify-edit");
 var js_imgContainer = $("#imgContainer");
 var js_transform = $("#transform");
 var js_reset = $("#reset");
@@ -58,11 +59,11 @@ function read_image(){
           drawingWidth = parseInt(this.width * editingHeight / this.height)
         }
 
-        var elementslist = [js_imgContainer, js_drawing, previewCanvas, previewDrawing];
+        var elementslist = [js_imgContainer, js_drawing, infinifyEdit, previewCanvas];
 
         for (var i = 0; i <  elementslist.length; i++) {
-          elementslist[i].width(drawingWidth);
-          elementslist[i].height(drawingHeight);
+          elementslist[i].width(drawingWidth - 5);
+          elementslist[i].height(drawingHeight - 5);
           elementslist[i].attr('width', drawingWidth);
           elementslist[i].attr('height', drawingHeight);  
         }
@@ -113,13 +114,15 @@ function resetImage(){
   imgContext = getCanvasContext(js_imgContainer);
   drawContext= getCanvasContext(js_drawing);
   prevCanCtx = getCanvasContext(previewCanvas);
-  width = js_editing.width();
-  height = js_editing.height();
+  editWidth = js_editing.width();
+  editHeight = js_editing.height();
+  infinifyEdit.width(editWidth);
+  infinifyEdit.height(editHeight);
   $("#draggable2").css("display", "none");
   pointArray = [];
-  drawContext.clearRect(0, 0, width,height);
-  imgContext.clearRect(0,0, width, height);
-  prevCanCtx.clearRect(0, 0, width, height);
+  drawContext.clearRect(0, 0, editWidth, editHeight);
+  imgContext.clearRect(0,0, editWidth, editHeight);
+  prevCanCtx.clearRect(0, 0, editWidth, editHeight);
   $('#picture').val('');
   hasImage = false;
   //disableButtons();
