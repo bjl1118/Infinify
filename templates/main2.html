@@ -77,7 +77,7 @@
 					<a id = "reset-btn" class = "button" href="#">RESET</a>
 				</div>
 				<div id = "editing" class = "column-main">
-					<img class = "sizerImg" src="https://www.colourbox.com/preview/2778860-metal-pipe-girders-angles-channels-and-square-tube-on-a-white-background.jpg" alt="">
+					<img class = "sizerImg" src="{{ url_for('static', filename='2778860-metal-pipe-girders-angles-channels-and-square-tube-on-a-white-background.jpg') }}" alt="">
 					<div id = "infinify-edit">
 						<canvas id="imgContainer"></canvas>
 						<canvas id="drawing" ></canvas>
@@ -110,7 +110,7 @@
 
 				</div>
 				<div id = "after-container" class = "column-main">
-					<img class = "sizerImg" src="https://www.colourbox.com/preview/2778860-metal-pipe-girders-angles-channels-and-square-tube-on-a-white-background.jpg" alt="">
+					<img class = "sizerImg" src="{{ url_for('static', filename='2778860-metal-pipe-girders-angles-channels-and-square-tube-on-a-white-background.jpg') }}" alt="">
 					{# <div class = "col-md-4"> #}
 					<div id = "preview-img-container">
 						<canvas id = "previewCanvas"></canvas>
