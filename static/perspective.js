@@ -354,6 +354,7 @@ $("#transform-btn").click(function(e){
   //var ctx3 = getCanvasContext(previewCanvas);
   //make new img and set src to the src image in the editing canvas
   var previewImg = new Image();
+  canCtx.clearRect(0, 0, previewCanvas.width(), previewCanvas.height());
   canCtx.drawImage(sourceCanvas[0], 0 ,0);
 
   //ctx.clearRect(0,0,drawing.width(), drawing.height());
@@ -371,7 +372,7 @@ $("#transform-btn").click(function(e){
   for (var i = 0; i < 5; i++){
     drawOntoDest(left, top, width, height, previewCanvas[0]);
   }
-
+  pointArray = [];
   draggable_div.hide();
 
   //Ok, heres how im going to do this
