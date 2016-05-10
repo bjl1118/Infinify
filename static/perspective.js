@@ -25,7 +25,6 @@
 var drawing = $("#drawing");
 var previewDrawing = $("#previewDrawing");
 var ctx = getCanvasContext(drawing);
-var drawCtx = getCanvasContext(previewDrawing);
 var canCtx = getCanvasContext(previewCanvas)
 ctx.strokeStyle='white';
 var draggable_div = $("#draggable2");
@@ -350,10 +349,20 @@ $("#transform-btn").click(function(e){
   var drawing = $("#drawing");
   var previewDrawing = $("#previewDrawing");
   var previewCanvas = $("#previewCanvas");
+  var previewImgContainer = $("#preview-img-container");
+
   var before = new Date();
   //var ctx3 = getCanvasContext(previewCanvas);
   //make new img and set src to the src image in the editing canvas
-  var previewImg = new Image();
+  if (previewImgContainer.width() > previewImgContainer.height()) {
+    previewImgContainer.css("margin-top", "auto");
+    previewImgContainer.css("margin-bottom", "auto");
+  }
+  else {
+    previewImgContainer.css("margin-left", "auto");
+    previewImgContainer.css("margin-right", "auto");
+  }
+
   canCtx.clearRect(0, 0, previewCanvas.width(), previewCanvas.height());
   canCtx.drawImage(sourceCanvas[0], 0 ,0);
 
@@ -373,7 +382,7 @@ $("#transform-btn").click(function(e){
     drawOntoDest(left, top, width, height, previewCanvas[0]);
   }
   pointArray = [];
-  draggable_div.hide();
+  
 
   //Ok, heres how im going to do this
  // --were going to create a canvas with height and width equal to the resize img
