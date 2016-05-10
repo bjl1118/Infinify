@@ -101,9 +101,6 @@ body{
 	position: relative;
 	padding: 5px;
 	display: inline-block;
-}
-
-#editing{
 	overflow: auto;
 }
 
@@ -121,13 +118,11 @@ body{
 	max-height: 100%;
 	max-width: 100%;
 	margin: 0 auto;
-	overflow: auto;
 }
 
 #preview-container{
 	height: 100%;
 	position: relative;
-	overflow: auto;
 }
 
 /*#after-container{
@@ -142,7 +137,6 @@ body{
 	position: absolute;
 	top: 5px;
 	left: 5px;
-	overflow: auto;
 }
 
 #preview-img{
