@@ -101,9 +101,6 @@ body{
 	position: relative;
 	padding: 5px;
 	display: inline-block;
-}
-
-#editing{
 	overflow: hidden;
 }
 
@@ -114,18 +111,17 @@ body{
 }
 
 #infinify-edit{
-	/*border: 2px solid yellow;*/
 	position: absolute;
 	top: 5px;
 	left: 5px;
-	margin: 0 auto;
-	overflow: hidden;
+	right: 5px;
+	bottom: 5px;
+	display: none;
 }
 
 #preview-container{
 	height: 100%;
 	position: relative;
-	overflow: hidden;
 }
 
 /*#after-container{
@@ -137,10 +133,12 @@ body{
 }*/
 
 #preview-img-container{
+	display: none;
 	position: absolute;
 	top: 5px;
 	left: 5px;
-	overflow: hidden;
+	right: 5px;
+	bottom: 5px;
 }
 
 #preview-img{

@@ -8,6 +8,7 @@ var js_reset = $("#reset");
 var js_download = $("#download");
 var previewCanvas = $("#previewCanvas");
 var previewDrawing = $("#previewDrawing");
+var previewImgContainer = $("#preview-img-container");
 
 //reads the image from the input and displays it as canvas 
 /*function disableButtons(){
@@ -44,22 +45,32 @@ function read_image(){
          // var currentCanvas = new CanvasState(drawingCanvas[0]);
           
         var js_editing = $("#editing");
+
+        infinifyEdit.show();
+        previewImgContainer.show();
+
         var editingWidth = js_editing.width();
         var editingHeight = js_editing.height();
         var widthRatio = this.width / editingWidth;
         var heightRatio = this.height / editingHeight;
         var drawingWidth, drawingHeight;
+
         if (widthRatio > heightRatio) {
             // var ratio = widthRatio / heightRatio;
           drawingWidth = editingWidth;
           drawingHeight = parseInt(this.height * editingWidth / this.width);
+          infinifyEdit.css("margin-top", "auto");
+          infinifyEdit.css("margin-bottom", "auto");
         }
         else {
           drawingHeight = editingHeight;
           drawingWidth = parseInt(this.width * editingHeight / this.height)
+
+          infinifyEdit.css("margin-left", "auto");
+          infinifyEdit.css("margin-right", "auto");
         }
 
-        var elementslist = [js_imgContainer, js_drawing, infinifyEdit, previewCanvas];
+        var elementslist = [js_imgContainer, js_drawing, infinifyEdit, previewImgContainer, previewCanvas];
 
         for (var i = 0; i <  elementslist.length; i++) {
           elementslist[i].width(drawingWidth - 5);
@@ -116,15 +127,23 @@ function resetImage(){
   prevCanCtx = getCanvasContext(previewCanvas);
   editWidth = js_editing.width();
   editHeight = js_editing.height();
+<<<<<<< HEAD
   infinifyEdit.width(editWidth);
   infinifyEdit.height(editHeight);
   $("#draggable2").css("display", "none");
+=======
+  var draggableDiv = $("#draggable2");
+  draggableDiv.hide();
+>>>>>>> style
   pointArray = [];
   drawContext.clearRect(0, 0, editWidth, editHeight);
   imgContext.clearRect(0,0, editWidth, editHeight);
   prevCanCtx.clearRect(0, 0, editWidth, editHeight);
   $('#picture').val('');
   hasImage = false;
+  div_positioned = false;
+  infinifyEdit.hide();
+  previewImgContainer.hide();
   //disableButtons();
 
 
