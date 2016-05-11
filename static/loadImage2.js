@@ -127,14 +127,10 @@ function resetImage(){
   prevCanCtx = getCanvasContext(previewCanvas);
   editWidth = js_editing.width();
   editHeight = js_editing.height();
-<<<<<<< HEAD
-  infinifyEdit.width(editWidth);
-  infinifyEdit.height(editHeight);
-  $("#draggable2").css("display", "none");
-=======
+
   var draggableDiv = $("#draggable2");
   draggableDiv.hide();
->>>>>>> style
+
   pointArray = [];
   drawContext.clearRect(0, 0, editWidth, editHeight);
   imgContext.clearRect(0,0, editWidth, editHeight);

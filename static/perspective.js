@@ -390,10 +390,6 @@ $("#transform-btn").click(function(e){
 })
 
 
-// $("#redraw").click(function(e){
-//   pointArray = [];
-//   ctx.clearRect(0,0,drawing.width(), drawing.height());
-// })
 
 
 
