@@ -64,6 +64,17 @@ body{
 	text-decoration: none;
 }
 
+.icon-container{
+	position: absolute;
+	margin: 0 auto;
+	top: 25%; left: 0; bottom: 0; right: 0;
+	text-align: center;
+}
+
+.icon-container img{
+	opacity: 0.5;
+}
+
 #content-row-main{
 	display: table;
 	border-collapse: separate;
@@ -102,6 +113,10 @@ body{
 	padding: 5px;
 	display: inline-block;
 	overflow: hidden;
+}
+
+#editing{
+	background: 
 }
 
 .sizerImg{
