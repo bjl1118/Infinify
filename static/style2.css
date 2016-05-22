@@ -32,9 +32,36 @@ body{
 }
 
 #content{
-	padding-top: 30px;
+	padding-top: 5px;
 	padding-bottom: 80px;
 	background: #162837;
+}
+
+#carousel-container{
+	margin: 15px;
+	background: #162837;
+	background: -o-linear-gradient(#0E1317, #162837, #0E1317);
+	background: -webkit-linear-gradient(#0E1317, #162837, #0E1317);
+	background: -moz-linear-gradient(#0E1317, #162837, #0E1317);
+	background: linear-gradient(to right, #0E1317, #162837, #0E1317);
+	border-radius: 15px;
+
+}
+
+.carousel-inner{
+	padding: 10px;
+}
+
+.carousel-inner .item img{
+	margin: 0 auto;
+}
+
+.glyphicon:hover {
+	color: #CE7600;
+}
+
+.carousel-control:hover{
+	color: #CE7600;
 }
 
 .btn-container{
