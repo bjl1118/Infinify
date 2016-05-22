@@ -19,6 +19,24 @@
 		<p> A PICTURE WITHIN A PICTURE...</p>
 	</div>
 	<div id = "content" class = "container">
+
+	<div id="myCarousel1" class="carousel slide" data-ride="carousel">
+			<ol class = "carousel-indicators">
+				<li data-target = "#myCarousel1" data-slide-to = "0" class = active></li>
+				<li data-target = "#myCarousel1" data-slide-to = "1"></li>
+			</ol>
+
+			<div class = "carousel-inner" role = "listbox">
+				<div class = "item active">
+					<img src="{{ url_for('static', filename='1463179672_style.png') }}" alt="Pic">
+				</div>
+
+				<div class = "item">
+					<img src="{{ url_for('static', filename='1463179672_style.png') }}" alt="Pic">
+				</div>
+				
+			</div>
+		</div>
 		<!--div id = "buttons row" class = "row">
 			<!Upload, Reset, Download, or Share
 					Upload prompts a little bubble that says "from file" and "from template" as two tabs
