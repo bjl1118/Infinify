@@ -9,6 +9,8 @@ var js_download = $("#download");
 var previewCanvas = $("#previewCanvas");
 var previewDrawing = $("#previewDrawing");
 var previewImgContainer = $("#preview-img-container");
+var iconContainer = $(".icon-container");
+var afterContainer = $("#after-container");
 
 //reads the image from the input and displays it as canvas 
 /*function disableButtons(){
@@ -46,6 +48,7 @@ function read_image(){
           
         var js_editing = $("#editing");
 
+        $("#upload-icon-container").hide();
         infinifyEdit.show();
         previewImgContainer.show();
 
@@ -140,16 +143,39 @@ function resetImage(){
   div_positioned = false;
   infinifyEdit.hide();
   previewImgContainer.hide();
+  $("#upload-icon-container").show();
+  $("#preview-icon-container").show();
+
   //disableButtons();
 
-
-  //console.log(width);
 }
+
+$(".column-main").hover(
+  function(){
+    $(this).css("border", "2px dashed #CE7600");
+
+    if ($(this).find($(".icon-container")).is(":visible")){
+      console.log("icon-container is visible...who cares");
+      $(this).find($(".icon-container img")).css("opacity", "1");
+    }
+  }, 
+  function(){
+    $(this).css("border", "2px dashed #162837");
+
+    if ($(this).find($(".icon-container")).is(":visible")){
+      console.log("icon-container is visible...who cares");
+      $(this).find($(".icon-container img")).css("opacity", "0.4");
+
+    }
+  }
+);
+  //console.log(width);
 
 //event handlers go here 
 $("#download-btn").click(save_image);
 $("#picture").on("change", read_image);
 $("#reset-btn").click(resetImage);
+
 $("#upload-btn").click(function(){
   resetImage();
   $("#picture").click();

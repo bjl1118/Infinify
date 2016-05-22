@@ -382,6 +382,7 @@ $("#transform-btn").click(function(e){
   for (var i = 0; i < 5; i++){
     drawOntoDest(left, top, width, height, previewCanvas[0]);
   }
+  $("#preview-icon-container").hide();
   pointArray = [];
 
   var later = new Date();
