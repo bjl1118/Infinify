@@ -16,8 +16,10 @@ body{
 	background: -webkit-linear-gradient(#162837, #0E1317);
 	background: -moz-linear-gradient(#162837, #0E1317);
 	background: linear-gradient(to bottom right, #162837, #0E1317);
-	padding: 20px;
-	text-align: center;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	/*text-align: center;*/
 }
 
 #header h1{
@@ -37,6 +39,14 @@ body{
 	background: #162837;
 }
 
+#instructions-carousel-container{
+	background: #0E1317;
+	border-radius: 15px;
+	margin: 15px;
+	height: 100%;
+	padding: 10px;
+}
+
 #carousel-container{
 	margin: 15px;
 	background: #162837;
@@ -44,7 +54,6 @@ body{
 	background: -webkit-linear-gradient(#0E1317, #162837, #0E1317);
 	background: -moz-linear-gradient(#0E1317, #162837, #0E1317);
 	background: linear-gradient(to right, #0E1317, #162837, #0E1317);
-	border-radius: 15px;
 
 }
 
@@ -62,6 +71,38 @@ body{
 
 .carousel-control:hover{
 	color: #CE7600;
+}
+
+#instructions-container{
+	padding: 15px;
+}
+
+#instructions-container ol{
+	padding-left: 20px;
+}
+
+#instructions-container ol li{
+	padding: 5px;
+}
+
+.instruction-text{
+	color: #B4BABF;
+}
+
+#try-it-out{
+	border: 1px solid #CE7600;
+	background: #0E1317;
+	color: #CE7600; 
+	font-size: 16px;
+	letter-spacing: 2px;
+	/*padding: 5px;*/
+}
+
+#try-it-out:hover{
+	background: #CE7600;
+	color: #0E1317;
+	/*text-decoration: none;
+	margin: 0 auto;*/
 }
 
 .btn-container{

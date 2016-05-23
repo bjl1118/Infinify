@@ -157,6 +157,7 @@ $(".column-main").hover(
     if ($(this).find($(".icon-container")).is(":visible")){
       console.log("icon-container is visible...who cares");
       $(this).find($(".icon-container img")).css("opacity", "1");
+      $(this).find($(".icon-container h3")).css("color", "#B4BABF");
     }
   }, 
   function(){
@@ -165,7 +166,7 @@ $(".column-main").hover(
     if ($(this).find($(".icon-container")).is(":visible")){
       console.log("icon-container is visible...who cares");
       $(this).find($(".icon-container img")).css("opacity", "0.4");
-
+      $(this).find($(".icon-container h3")).css("color", "#162837");
     }
   }
 );
