@@ -1,7 +1,9 @@
-(function($, window, document){
+(function(main){
+	main(window, document, window.jQuery);
+}
 
-	$(function(){
-		console.log()
-	});
+(function(window, document, $){
+	console.log("it worked");
+	
 
-})
+}));
