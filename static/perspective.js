@@ -233,12 +233,7 @@ function drawCurrent(e){
     $("#redraw").show();
     $("#continue").show();
   }
-}
-
-//$(drawing).mousemove(function(e){
-//  console.log('dragging');
-//  drawCurrent(e);
-//});
+} 
 
 
 $(drawing).click(function(e){
