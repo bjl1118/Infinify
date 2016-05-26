@@ -5,6 +5,14 @@ app = Flask(__name__)
 """
 Where our temporary server will live.
 """
+import sys
+
+PORT=None
+if len(sys.argv) == 1:
+  PORT=5000
+else:
+  PORT=int(sys.argv[1])
+
 
 
 
@@ -25,5 +33,5 @@ def design1():
 
 
 if __name__ == "__main__":
-  app.run()
+  app.run(port=PORT)
 
