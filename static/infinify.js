@@ -308,6 +308,7 @@
 
 	function drawToCanvas(rectLeft, rectTop, rectWidth, rectHeight, canvas){
 		console.log("draw to canvas called");
+		canCtx = getCanvasContext(previewCanvas);
 		var totalWidth = Math.abs(pointArray[0][0] - pointArray[2][0]);
 	  var leftX = pointArray[0][0];
 	  for (var i = 0; i < totalWidth; i++) {
@@ -324,7 +325,7 @@
 	    var dw = 2;
 	    var dh = tb[1]-tb[0]
 	    console.log(sx, sy, sw, sh, dx, dy, dw, dh);
-	    canCtx.drawImage(imgContainer, sx, sy, sw, sh, dx, dy, dw, dh);
+	    canCtx.drawImage(canvas, sx, sy, sw, sh, dx, dy, dw, dh);
 	  }
 	}
 
