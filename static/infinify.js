@@ -24,10 +24,12 @@
 	var previewIconContainer = $("#preview-icon-container");
 	var uploadIconContainer = $("#upload-icon-container");
 	var columnMain = $(".column-main");
+	var imgLink = $("#img-link");
 
 	//flags
 	var hasImage = false;
 	var divPositioned = false;
+	var hasTransformedImage = false;
 	
 	//pass in canvas, return canvas context
 	function getCanvasContext(canvas){
@@ -102,10 +104,11 @@
 	function downloadImg(){
 		console.log("download img called");
 
-		//REMEMBER TO ADD AN IF STATEMENT HERE. THIS SHOULDNT WORK NO MATTER WHAT
-		var dataurl = previewCanvas.get(0).toDataURL();
-  	imgLink.attr("href", dataurl);
-  	imgLink[0].click();
+		if (hasTransformedImage){
+			var dataurl = previewCanvas.get(0).toDataURL();
+	  	imgLink.attr("href", dataurl);
+	  	imgLink[0].click();
+  	}
 	}
 
 	//reset editing div to initial state
@@ -123,6 +126,7 @@
 	  prevCanCtx.clearRect(0, 0, editWidth, editHeight);
 	  picture.val('');
 	  hasImage = false;
+	  hasTransformedImage = false;
 	  infinifyEdit.hide();
 	  previewImgContainer.hide();
 	  previewIconContainer.show();
@@ -344,45 +348,52 @@
 
 	transformBtn.click(function(e){
 		console.log("transformBtn clicked");
-		ctx = getCanvasContext(drawing);
-		canCtx = getCanvasContext(previewCanvas);
-	  var before = new Date();
-	  //var ctx3 = getCanvasContext(previewCanvas);
-	  //make new img and set src to the src image in the editing canvas
+		if (pointArray.length == 4){
+			ctx = getCanvasContext(drawing);
+			canCtx = getCanvasContext(previewCanvas);
+		  var before = new Date();
+		  //var ctx3 = getCanvasContext(previewCanvas);
+		  //make new img and set src to the src image in the editing canvas
 
-	  if (previewImgContainer.width() > previewImgContainer.height()) {
-	    previewImgContainer.css("margin-top", "auto");
-	    previewImgContainer.css("margin-bottom", "auto");
-	  }
-	  else {
-	    previewImgContainer.css("margin-left", "auto");
-	    previewImgContainer.css("margin-right", "auto");
-	  }
+		  if (previewImgContainer.width() > previewImgContainer.height()) {
+		    previewImgContainer.css("margin-top", "auto");
+		    previewImgContainer.css("margin-bottom", "auto");
+		  }
+		  else {
+		    previewImgContainer.css("margin-left", "auto");
+		    previewImgContainer.css("margin-right", "auto");
+		  }
 
-	  canCtx.clearRect(0, 0, previewCanvas.width(), previewCanvas.height());
-	  canCtx.drawImage(imgContainer[0], 0 ,0);
+		  canCtx.clearRect(0, 0, previewCanvas.width(), previewCanvas.height());
+		  canCtx.drawImage(imgContainer[0], 0 ,0);
 
-	  //ctx.clearRect(0,0,drawing.width(), drawing.height());
-	  ctx.drawImage(imgContainer[0], 0,0);
-	  var after = new Date();
-	  console.log("time it takes to draw single whole thing is " + (after - before));
-	  console.log(drawing.position);
-	  var left = draggableDiv.position().left;
-	  var top = draggableDiv.position().top;
-	  var width = draggableDiv.width();
-	  var height = draggableDiv.height();
-	  console.log(" parameters are "+ left + ", " + top + ", " + width + ", " + height);
-	  draggableDiv.hide();
-	  var now = new Date();
-	  for (var i = 0; i < 5; i++){
-	    drawToCanvas(left, top, width, height, previewCanvas[0]);
-	  }
-	  previewIconContainer.hide();
-	  pointArray = [];
+		  //ctx.clearRect(0,0,drawing.width(), drawing.height());
+		  ctx.drawImage(imgContainer[0], 0,0);
+		  var after = new Date();
+		  console.log("time it takes to draw single whole thing is " + (after - before));
+		  console.log(drawing.position);
+		  var left = draggableDiv.position().left;
+		  var top = draggableDiv.position().top;
+		  var width = draggableDiv.width();
+		  var height = draggableDiv.height();
+		  console.log(" parameters are "+ left + ", " + top + ", " + width + ", " + height);
+		  draggableDiv.hide();
+		  var now = new Date();
+		  for (var i = 0; i < 5; i++){
+		    drawToCanvas(left, top, width, height, previewCanvas[0]);
+		  }
+		  previewIconContainer.hide();
+		  pointArray = [];
+		  hasTransformedImage = true;
 
-	  var later = new Date();
-	  console.log("Time it takes to draw five times is: " + (later - now));
+		  var later = new Date();
+		  console.log("Time it takes to draw five times is: " + (later - now));
 
+	}
+	else{
+		console.log("not there yet");
+		return;
+	}
 	});
 
 	columnMain.hover(function(){
