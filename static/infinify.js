@@ -25,9 +25,6 @@
 	var uploadIconContainer = $("#upload-icon-container");
 	var columnMain = $(".column-main");
 
-
-
-
 	//flags
 	var hasImage = false;
 	var divPositioned = false;
@@ -138,11 +135,11 @@
 		var totalWidth = Math.abs(pointArray[0][0] - pointArray[2][0]);
 	  var h1 = Math.abs(pointArray[1][1]-pointArray[0][1]);
 	  var h2 = Math.abs(pointArray[3][1]-pointArray[2][1]);
-	  var maxHeight = Math.max(h1,h2);
+	  //var maxHeight = Math.max(h1,h2);
 	  var minHeight = Math.min(h1,h2);
-	  var slope = ((maxHeight - minHeight) / totalWidth)
-	  var diff = maxHeight - minHeight;
-	  var cosine = (totalWidth / Math.sqrt((diff * diff) + (totalWidth * totalWidth)))
+	  //var slope = ((maxHeight - minHeight) / totalWidth)
+	  //var diff = maxHeight - minHeight;
+	  //var cosine = (totalWidth / Math.sqrt((diff * diff) + (totalWidth * totalWidth)))
 	  return minHeight / totalWidth
 	}
 
