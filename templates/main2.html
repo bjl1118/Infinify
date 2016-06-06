@@ -65,53 +65,88 @@
 				</ol>
 			</div-->
 			<div id = "instructions-accordian-container">
-				<h1 class = "instruction-text">Instructions...</h1>
+				<h1 class = "instruction-text">Instructions</h1>
 				<div class = "panel-group" id = "accordian">
 					<div class = "panel panel-default">
 						<div class = "panel-heading">
 							<h4 class = "panel-title">
-								<a data-toggle="collapse" data-parent = "accordian" href="#collapse1">WHO CARES</a>
+								<a data-toggle="collapse" data-parent = "accordian" href="#collapse1">Upload a Photo </span></a>
 							</h4>
 						</div>
-						<div id = "collapse1" class = "panel-collapse collapse">
+						<div id = "collapse1" class = "panel-collapse collapse in">
 							<div class = "panel-body">
-								<p class = "instruction-text"> who cares wqho cares who cares who cares who cares </p>
+								<ul>
+									<li class = "instruction-text">Click "Upload" to upload a photo.</li>
+								</ul>
+								<img src="{{ url_for('static', filename='step1.png') }}" alt="#">
 							</div>							
 						</div>
 					</div>
 					<div class = "panel panel-default">
 						<div class = "panel-heading">
 							<h4 class = "panel-title">
-								<a data-toggle = "collapse" data-parent = "accordian" href="#collapse2">I dont care...</a>
+								<a data-toggle = "collapse" data-parent = "accordian" href="#collapse2">Select the Destination Area </a>
 							</h4>
 						</div>
 						<div id = "collapse2" class = "panel-collapse collapse">
 							<div class = "panel-body">
-								<p class = "instruction-text"> All the ice creams in the world couldnt take the place of a friend. </p>
+								<ul>
+									<li class = "instruction-text">We need to select an area in the photo to "draw" onto.</li>
+									<li class = "instruction-text">Click anywhere on the photo to draw the first point. We will draw a total of four.</li>
+									<li class = "instruction-text">ALWAYS START WITH THE TOP LEFT AND MOVE COUNTER-CLOCKWISE. In this example, we start with the top-left corner of the painting and move counter-clockwise... </li>
+								</ul>
+								<img src="{{ url_for('static', filename='step2.png') }}" alt="#">
+								<ul >
+									<li class = "instruction-text">Bottom-left comes next...</li>
+								</ul>
+								<img src="{{ url_for('static', filename='step3.png') }}" alt="#">
+								<ul>
+									<li class = "instruction-text">Then the bottom-right...</li>
+								</ul>
+								<img src="{{ url_for('static', filename='step4.png') }}" alt="#">
+								<ul>
+									<li class = "instruction-text">...And finally the top-right.</li>
+									<li class = "instruction-text">When we draw all four points, you will notice two new features on the photo. You will see a grid in the area where you drew the four points, and also a new box to drag around...</li>
+								</ul>
+									<!--p class = "instruction-text">And finally the top-right.</p>
+									<p class = "instruction-text">When we draw all four points, you will notice two new features on the photo. You will see a grid in the area where you drew the four points, and also a new box to drag around...</p-->
+								<img src="{{ url_for('static', filename='step5.png') }}" alt="#">
 							</div>
 						</div>
 					</div>
 					<div class = "panel panel-default">
 						<div class = "panel-heading">
 							<h4 class = "panel-title">
-								<a data-toggle = "collapse" data-parent = "accordian" href="#collapse3">Third times a charm</a>
+								<a data-toggle = "collapse" data-parent = "accordian" href="#collapse3">Select the Area to be Captured </a>
 							</h4>
 						</div>
 						<div id = "collapse3" class = "panel-collapse collapse">
 							<div class = "panel-body">
-								<p class = "instruction-text"> third times a charm... </p>
+								<ul>
+									<li class = "instruction-text">We will use the clear black box that appears to select the area that we want to capture. </li>
+									<li class = "instruction-text">We can resize it...</li>
+								</ul>
+								<img src="{{ url_for('static', filename='step6.png') }}" alt="#">
+								<ul>
+									<li class = "instruction-text">...and drag it around.</li>
+								</ul>
+								<img src="{{ url_for('static', filename='step7.png') }}" alt="#">
 							</div>
 						</div>
 					</div>
 					<div class = "panel panel-default">
 						<div class = "panel-heading">
 							<h4 class = "panel-title">
-								<a data-toggle = "collapse" data-parent = "accordian" href="#collapse4">be like an eagle</a>
+								<a data-toggle = "collapse" data-parent = "accordian" href="#collapse4">Transform and Download </a>
 							</h4>
 						</div>
 						<div id = "collapse4" class = "panel-collapse collapse">
 							<div class = "panel-body">
-								<p class = "instruction-text"> not like a turkey. Thanks trumpet man! </p>
+								<ul>
+									<li class = "instruction-text">Once we have the clear black box in place, we hit the "Transform" button. The new image will appear on the right.</li>
+									<li class = "instruction-text">Click "Download" to save the new image, or click "Reset" to try again!</li>
+								</ul>
+								<img src="{{ url_for('static', filename='step8.png') }}" alt="#">
 							</div>
 						</div>
 					</div>
@@ -187,7 +222,7 @@
 		</div>
 	</div>
 	<div id = "footer" class = "container">
-		<h5 id = "footer-text">This is our footer | This is still our footer | who cares...</h5>
+		<h5 id = "footer-text">Created by Ben Leibowitz-Lord and Sam Lobel</h5>
 	</div>
 
 </body>
