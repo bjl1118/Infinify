@@ -342,8 +342,18 @@
   	picture.click();
 	});
 
-	drawing.click(function(e){
-		console.log("drawing clicked");
+	$(".panel-link").click(function(){
+		var collapseDown = $(this).find(".glyphicon-collapse-down");
+		var collapseUp = $(this).find(".glyphicon-collapse-up");
+		if (collapseDown.is(":visible")){
+			collapseDown.hide();
+			collapseUp.show();
+		}
+		else{
+			collapseUp.hide();
+			collapseDown.show();
+		}
+		//console.log(panelBody.attr("aria-expanded") == "true");
 	});
 
 	transformBtn.click(function(e){
