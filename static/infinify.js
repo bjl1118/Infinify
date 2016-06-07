@@ -353,7 +353,6 @@
 			collapseUp.hide();
 			collapseDown.show();
 		}
-		//console.log(panelBody.attr("aria-expanded") == "true");
 	});
 
 	transformBtn.click(function(e){
