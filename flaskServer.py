@@ -1,3 +1,4 @@
+import sys
 from flask import Flask, render_template, request
 app = Flask(__name__)
 
@@ -5,9 +6,8 @@ app = Flask(__name__)
 """
 Where our temporary server will live.
 """
-import sys
 
-PORT=None
+PORT = None
 if len(sys.argv) == 1:
   PORT=5000
 else:
