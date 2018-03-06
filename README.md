@@ -5,7 +5,7 @@ A photo editor app that creates a "pictures within a picture" effect. Created by
 
 #### Resources Used
 * <http://www.geometrictools.com/Documentation/PerspectiveMappings.pdf>
-* <http://opencv-code.com/tutorials/automatic-perspective-correction-for-quadrilateral-objects/>
+* <https://github.com/bsdnoobz/opencv-code/blob/master/quad-segmentation.cpp>
 
 #### How to Run It
 Download the zip file for the repo and run `python flaskServer.py`.  
